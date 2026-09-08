@@ -28,3 +28,5 @@ The first intended vertical slice is SURFER. IB/eyebrowser is the committed seco
 - Prefer small programs with explicit inputs and outputs; use shell or Grease composition unless evidence justifies fusion or a long-lived process.
 
 The reconciled design rationale is in [`notes/architectural-compilation.md`](notes/architectural-compilation.md).
+
+[`notes/canonical-local-directions.md`](notes/canonical-local-directions.md) records a small mathematical-architecture pattern used by the holomorphic explorer: a declared function space and local linear datum determine a minimum-norm Riesz direction before any worker, GPU, or visual policy chooses how to evaluate or schedule it.
