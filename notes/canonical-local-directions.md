@@ -55,6 +55,6 @@ For several simultaneous directions, finite linear combinations stay in a linear
 
 ## Concrete ownership
 
-The live whole-plane application contract, including its entire-function requirement and candidate entire reproducing-kernel model, belongs to [`isomorphismes/analytic-continuation`](https://github.com/isomorphismes/analytic-continuation/blob/main/docs/holomorphic-mathematical-contract.md). The historical unit-disc Bergman example belongs to [`isomorphismes/lacunary`](https://github.com/isomorphismes/lacunary). Rendering preferences belong to [`isomorphismes/wegert`](https://github.com/isomorphismes/wegert).
+The live whole-plane application contract, including its entire-function requirement and candidate entire reproducing-kernel model, belongs to [`isomorphismes/holomorphic`](https://github.com/isomorphismes/holomorphic/blob/main/docs/holomorphic-mathematical-contract.md). The historical unit-disc Bergman example belongs to [`isomorphismes/lacunary`](https://github.com/isomorphismes/lacunary). Rendering preferences belong to [`isomorphismes/wegert`](https://github.com/isomorphismes/wegert).
 
 This note preserves the architecture-independent pattern only. It is not a runtime implementation, a shared complex-number hierarchy, or a mandate for any particular kernel scale or visual motion.
