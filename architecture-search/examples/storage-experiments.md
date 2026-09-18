@@ -22,9 +22,9 @@ The experiment also distinguishes Android task/Activity reconstruction from actu
 
 ComputerScience should eventually consume measurements from this repository when choosing codec, compression level, CPU/GPU execution path, writeback policy, prefetch policy, and the point at which keeping a process alive is more expensive than recreating it.
 
-## `isomorphisms/sd-card-append-fat`
+## `fuego-ironworks/sd-card-append-fat`
 
-Repository: https://github.com/isomorphisms/sd-card-append-fat
+Repository: https://github.com/fuego-ironworks/sd-card-append-fat
 
 Question: how far can a deliberately append-oriented filesystem/storage design simplify write behavior and make sequential storage explicit on removable media?
 
@@ -36,6 +36,21 @@ The useful ComputerScience relationship is that both expose a choice usually hid
 - append-fat asks what storage representation and update discipline should be used for append-oriented durable data.
 
 They should remain distinct semantic choices. A planner may eventually compose them only when the target, workload, durability requirements, and measurements justify doing so.
+
+
+### High-level storage intent
+
+This experiment is also a useful architecture-search forcing case for a future high-level language. The program may want to say that a file should reserve space before writes, keep its visible length unchanged until bytes are actually written, and prefer or require an append-oriented/sequential allocation pattern. Those are planner inputs, not necessarily syscall names.
+
+One Linux lowering candidate is `fallocate(..., FALLOC_FL_KEEP_SIZE)`. The useful implementation trail is:
+
+- util-linux `sys-utils/fallocate.c` for the command-to-libc boundary;
+- Linux `fs/open.c` for `vfs_fallocate()`;
+- Linux `fs/fat/file.c` for `fat_fallocate()` and FAT cluster extension.
+
+ComputerScience should choose among that path, an append-FAT-specific mechanism, another filesystem primitive, or an explicit unsupported result from target facts. Do not infer support from “this is an SD card” or even from the nominal filesystem alone: the mount/access path matters, and an Android mediated storage path can reject `fallocate` before the underlying FAT code is reached.
+
+Also keep the evidence boundary sharp: reserving FAT clusters can establish filesystem allocation ahead of logical EOF, but it does not prove physical NAND placement or contiguous flash pages behind the device's flash translation layer.
 
 ## Evidence rule
 
