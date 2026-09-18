@@ -12,7 +12,7 @@ the actual GPU.
 
 ## Executable whole-shader mode now exists
 
-On `idris-shader-backend:soap-f16-mode` (PR #11, stacked on PR #10), the compiler
+On `idris-shader-backend:main` (merged PR #11 on top of PR #10), the compiler
 now accepts `float-width=f16|f32`, with F32 remaining the default.
 
 - F16 compilation renders the checked IR as `F16` / `F16xN` and emits
@@ -23,8 +23,7 @@ now accepts `float-width=f16|f32`, with F32 remaining the default.
   supported precision.
 - the end-to-end compiler check validates the generated F16 fragment with
   `glslangValidator`.
-- the exact PR #11 head used by the downstream consumers is
-  `66214e3da0443fe4887062549e9ef5810c586dd7`, whose CI is green.
+- PR #11 is merged; watchers now follow `main` and record the exact resolved backend SHA for each observation.
 
 This is a substantive advance beyond the earlier precision-policy-only state.
 The compiler can now select a complete shader's semantic width and carry that
@@ -72,8 +71,7 @@ than a claim of PowerVR execution.
 
 ## AICI now distinguishes these milestones
 
-AICI PR #14 follows `idris-shader-backend:soap-f16-mode` rather than the older
-policy-only branch. Its FP16 baseline now promotes the established whole-shader
+AICI PR #14 follows `idris-shader-backend:main` after the whole-shader mode merged. Its FP16 baseline now promotes the established whole-shader
 compiler facts: directive parsing, selected-width checked IR, selected-width
 emission, invalid-width rejection, and the executable F16 compiler test.
 
@@ -94,7 +92,7 @@ The ComputerScience PR #12 watcher now follows:
 - AICI `compiler-backend-observations`;
 - `idric-arm-thumb:idric-ir-first-slice`;
 - `idris-arm-backend:main`;
-- `idris-shader-backend:soap-f16-mode`;
+- `idris-shader-backend:main`;
 - `algebraic-variety-explorer-mobile:dogfood/idris-shader-f16`.
 
 It combines AICI's general backend matrix, FP16/PowerVR matrix, and downstream

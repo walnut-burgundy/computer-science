@@ -26,7 +26,7 @@ The watcher currently follows the active development refs:
 - `idric-arm-thumb:idric-ir-first-slice` while PR #1 is the active
   implementation line;
 - `idris-arm-backend:main`;
-- `idris-shader-backend:soap-f16-mode`, the stacked whole-shader F16 compiler
+- `idris-shader-backend:main`, the merged whole-shader F16 compiler
   line;
 - `algebraic-variety-explorer-mobile:dogfood/idris-shader-f16`, an independent
   downstream algebraic-surface compiler consumer.

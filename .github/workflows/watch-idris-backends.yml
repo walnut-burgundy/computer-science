@@ -47,14 +47,14 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: isomorphisms/idris-shader-backend
-          ref: soap-f16-mode
+          ref: main
           path: _watch/idris-shader-backend
           fetch-depth: 0
 
       - name: Check out Algebraic Variety Explorer FP16 consumer
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          repository: isomorphisms/algebraic-variety-explorer-mobile
+          repository: isomorphismes/algebraic-variety-explorer-mobile
           ref: dogfood/idris-shader-f16
           path: _watch/algebraic-variety-explorer-mobile
           fetch-depth: 0
@@ -97,7 +97,7 @@ jobs:
               "$(git -C _watch/idric-arm-thumb rev-parse HEAD)" "$(git -C _watch/idric-arm-thumb rev-parse HEAD)"
             printf 'idris-arm-backend\tmain\t%s\t%s\n' \
               "$(git -C _watch/idris-arm-backend rev-parse HEAD)" "$(git -C _watch/idris-arm-backend rev-parse HEAD)"
-            printf 'idris-shader-backend\tsoap-f16-mode\t%s\t%s\n' \
+            printf 'idris-shader-backend\tmain\t%s\t%s\n' \
               "$(git -C _watch/idris-shader-backend rev-parse HEAD)" "$(git -C _watch/idris-shader-backend rev-parse HEAD)"
             printf 'algebraic-variety-explorer-mobile\tdogfood/idris-shader-f16\t%s\t%s\n' \
               "$(git -C _watch/algebraic-variety-explorer-mobile rev-parse HEAD)" \
