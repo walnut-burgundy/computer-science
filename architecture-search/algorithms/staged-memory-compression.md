@@ -85,6 +85,6 @@ Android 17 `mmd` is useful precedent for the staged model: fast initial zram com
 
 ## Language/compiler boundary
 
-Idriç/Edriç should preserve the high-level policy and constraints. ComputerScience should choose an implementation from target evidence. The selected lowering does not have to pass through C: a framework-side action may lower to DEX, a kernel/native action to machine code, and a GPU experiment to a compute/shader target.
+Idriç should preserve the high-level policy and constraints. ComputerScience should choose an implementation from target evidence. The selected lowering does not have to pass through C: a framework-side action may lower to DEX, a kernel/native action to machine code, and a GPU experiment to a compute/shader target.
 
 The planner should therefore record both the selected path and rejected alternatives rather than treating one implementation language as part of the semantic operation.
