@@ -29,3 +29,6 @@ The first intended vertical slice is SURFER. IB/eyebrowser is the committed seco
 - Prefer small programs with explicit inputs and outputs; use shell or Grease composition unless evidence justifies fusion or a long-lived process.
 
 The reconciled design rationale is in [`notes/architectural-compilation.md`](notes/architectural-compilation.md).
+
+
+A complementary design note, [Numeric types are maps, not just bit layouts](notes/numeric-types-as-maps.md), records the Cortex-A55/FP8 lesson that choosing a carrier does not determine conversion, arithmetic, accumulation, or lowering maps, and that the planner should enumerate and measure implementation tradeoffs rather than hand low-level mechanism selection back to the programmer.
