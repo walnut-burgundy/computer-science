@@ -30,3 +30,8 @@ The first intended vertical slice is SURFER. IB/eyebrowser is the committed seco
 The reconciled design rationale is in [`notes/architectural-compilation.md`](notes/architectural-compilation.md).
 
 [`notes/canonical-local-directions.md`](notes/canonical-local-directions.md) records a small mathematical-architecture pattern used by the holomorphic explorer: a declared function space and local linear datum determine a minimum-norm Riesz direction before any worker, GPU, or visual policy chooses how to evaluate or schedule it.
+
+
+## Compiler implementation comparison reference
+
+[`notes/compiler-implementation-comparisons.md`](notes/compiler-implementation-comparisons.md) points to the ICK `inspiration` comparison of GCC with Clang/LLVM and a range of smaller or differently structured C compilers. Revisit it when CPU, ARM/Thumb, or GPU architecture-search work needs evidence about frontend/backend seams, IR shape, retargeting cost, inlining, compact bit operations, or memory-copy lowering.
