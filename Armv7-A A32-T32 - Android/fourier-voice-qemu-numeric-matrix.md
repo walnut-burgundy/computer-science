@@ -37,7 +37,7 @@ policy changes.
 | FFT | FP16 stage storage | 16-bit/component | widen to f32, requantize each stage | no | aggressive half-storage transform |
 | storage decode | E5M3 | 8-bit/component | decode only | no | cost of current unsigned Ootomo–Naruse storage |
 
-Polynomial term counts measured: 8, 16, 24, 32, 48, 64.
+Polynomial term counts measured: 8, 16, 24, 26, 28, 30, 32, 48, 64.
 
 FFT lengths measured: 256, 512, 1024, 2048, 4096.
 
@@ -69,5 +69,61 @@ For each CPU model and lane:
 7. disassembly evidence that the explicit NEON lanes actually contain vector
    instructions.
 
-Results will be appended here from the CI artifact; emulator ratios remain
-screening evidence rather than MIRO cycle claims.
+## First green result
+
+Fourier-sound benchmark commit:
+`da4d436d24f006e6c90c6de5b2957b43687ca1aa`.
+
+Toolchain receipt:
+
+- `arm-linux-gnueabi-gcc 13.3.0`;
+- `qemu-arm 8.2.2`;
+- ELF attributes: ARMv7-A, Thumb-2, VFPv4, NEONv1 with fused MAC, IEEE
+  binary16 format;
+- disassembly contains explicit NEON loads/stores and vector
+  `vmul.f32`, `vmla.f32`, `vmls.f32`, `vadd.f32`, and
+  `vsub.f32` in the SIMD lanes.
+
+The two QEMU CPU models produced similar direction but are not independent
+hardware measurements. Their timing differences should not be read as a
+Cortex-A7-versus-Cortex-A15 performance comparison; TCG is not cycle accurate.
+
+### Current-shape headroom
+
+| Kernel/lane | Cortex-A7 speed ratio | Cortex-A15 speed ratio | Same-budget measured headroom | Error versus f64 |
+| --- | ---: | ---: | --- | ---: |
+| polynomial f32 scalar | 1.124× | 1.147× | 26 terms vs 24 | ~5.35e-8 relative checksum |
+| polynomial f32 NEON4 | 1.134× | 1.209× | 26 terms on A7; 28 on A15 vs 24 | ~5.35e-8 |
+| polynomial FP16 storage → f32 math | 0.713× | 0.735× | slower; 24 terms exceed baseline | ~2.71e-4 |
+| polynomial E4M3 storage → f32 math | 0.916× | 0.983× | slightly slower at 24 terms | ~1.87e-2 |
+| polynomial E5M2 storage → f32 math | 0.777× | 0.827× | slower at 24 terms | ~1.94e-2 |
+| FFT f32 scalar, N=1024 | 1.086× | 1.094× | same N=1024; ~9% more transforms/time | ~7.00e-7 max component error |
+| FFT f32 NEON2 SoA, N=1024 | 1.286× | 1.290× | same N=1024; ~29% more transforms/time | ~7.00e-7 |
+| FFT FP16 stage storage → f32 math | 0.560× | 0.569× | only N=512 fits f64/N=1024 time | ~9.82e-5 |
+
+The most useful first result is that **smaller storage is not automatically
+faster** on this ARMv7 path. Repeated FP16/fp8 conversion can cost more than
+the binary32 arithmetic it saves. Binary32 plus explicit NEON is the only lane
+in this first matrix that clearly buys compute headroom without a material
+numerical penalty.
+
+For the polynomial renderer, the measured SIMD headroom is roughly **+2 to +4
+terms** at the same QEMU time as the current 24-term f64 frame. That is a
+screening result, not yet a MIRO limit.
+
+For the FFT, the structure-of-arrays NEON version is about **29% faster** at
+N=1024. That is not enough to make N=2048 fit inside the *old N=1024
+FFT-only* time budget: the measured N=2048 NEON transform is about 0.93–0.94 ms
+versus about 0.52 ms for f64 N=1024. But the FFT remains much cheaper than a
+96×192 polynomial frame in this emulator, so a larger transform may still fit
+the actual application frame budget after physical-phone measurement.
+
+### E5M3 result
+
+Current ICK E5M3 remains unsigned storage, so a signed complex FFT lane is not
+defined. Its decode-only probe processed 4096 stored values in about 33–35 µs
+under QEMU, roughly 118–124 million decodes/s in emulator time. Do not turn
+that number into a MIRO throughput prediction.
+
+The raw green summary is committed beside this note. Physical MIRO timing is
+the next gate before adopting f32/NEON or changing coefficient count.
