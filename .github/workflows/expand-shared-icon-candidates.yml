@@ -1,0 +1,28 @@
+name: Expand shared icon candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/expand-shared-icon-candidates.yml'
+permissions:
+  contents: write
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: shared-icon-candidates
+          fetch-depth: 0
+      - name: Expand icon candidate archive on shared branch
+        shell: bash
+        run: |
+          cat .icon-load/chunk-*.b64 | base64 -d > /tmp/icons.tar.gz
+          echo "903dc7134c08e882c1938ce9ec8cb94678ab653394d0e0550ed117c214f80241  /tmp/icons.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/icons.tar.gz
+          rm -rf .icon-load .github/workflows/expand-icon-candidates.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Expand shared icon candidate thumbnails"
+          git push origin HEAD:shared-icon-candidates

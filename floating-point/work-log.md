@@ -1,5 +1,7 @@
 # Floating-point work log
 
+Historical snapshot of the August 26, 2026 investigation. Implementation and CI statements below describe that recorded revision; they do not establish current compiler, ABI, GPU, or physical-device qualification.
+
 ## 2026-08-26 — shader precision kickoff
 
 Cross-repository working branch: `float-semantics-f16-f32`.

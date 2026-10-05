@@ -1,0 +1,20 @@
+meta	schema	aici-ingestion-receipt-v1
+meta	corpus_revision	hostile-web-v1-2026-08-30
+meta	corpus_repository_revision	c1e423d506f6adfc8c1c9659a4faaf94ae84eaf0
+meta	fixture_id	valid_utf8
+meta	implementation_role	consumer
+meta	implementation_name	computer-science-capability-contract
+meta	implementation_revision	@IMPLEMENTATION_REVISION@
+meta	executable_sha256	none
+meta	fallback	none
+meta	scope	capability-vocabulary-only
+meta	producer	contract-consumer
+stage	valid_utf8	input_acquisition	SKIP	not_implemented_capability	computer-science	not-run
+stage	valid_utf8	network	SKIP	blocked_by_input_acquisition	computer-science	not-run
+stage	valid_utf8	decompression	SKIP	blocked_by_input_acquisition	computer-science	not-run
+stage	valid_utf8	decoding	SKIP	blocked_by_input_acquisition	computer-science	not-run
+stage	valid_utf8	html_recovery	SKIP	blocked_by_input_acquisition	computer-science	not-run
+stage	valid_utf8	document_construction	SKIP	blocked_by_input_acquisition	computer-science	not-run
+stage	valid_utf8	downstream_extraction	SKIP	blocked_by_input_acquisition	computer-science	not-run
+summary	first_failure	none
+summary	first_incomplete	input_acquisition

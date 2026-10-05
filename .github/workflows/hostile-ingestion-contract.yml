@@ -1,0 +1,26 @@
+name: Hostile ingestion capability contract
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checked-skip-receipt:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Materialize exact repository revision
+        shell: sh
+        run: |
+          repository_revision=$(git rev-parse HEAD)
+          sed "s/@IMPLEMENTATION_REVISION@/$repository_revision/" \
+            hostile-ingestion/capability.receipt.template.tsv \
+            >"$RUNNER_TEMP/capability.receipt.tsv"
+      - name: Verify truthful capability SKIP boundary
+        uses: isomorphisms/ai-ci/ingestion@c1e423d506f6adfc8c1c9659a4faaf94ae84eaf0
+        with:
+          receipt: ${{ runner.temp }}/capability.receipt.tsv
+          role: consumer

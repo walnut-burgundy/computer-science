@@ -1,0 +1,3 @@
+[submodule "upstream/iridium"]
+	path = upstream/iridium
+	url = https://github.com/puffnfresh/iridium.git
