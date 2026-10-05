@@ -35,3 +35,7 @@ The reconciled design rationale is in [`notes/architectural-compilation.md`](not
 ## Compiler implementation comparison reference
 
 [`notes/compiler-implementation-comparisons.md`](notes/compiler-implementation-comparisons.md) points to the ICK `inspiration` comparison of GCC with Clang/LLVM and a range of smaller or differently structured C compilers. Revisit it when CPU, ARM/Thumb, or GPU architecture-search work needs evidence about frontend/backend seams, IR shape, retargeting cost, inlining, compact bit operations, or memory-copy lowering.
+
+## Floating-point semantic references
+
+[The floating-point contract](floating-point/semantics.md) separates F16/F32 value width, arithmetic implementation, Arm calling conventions, scalar/vector execution, and GPU precision. [Numeric types as maps](notes/numeric-types-as-maps.md) keeps conversion, rounding, arithmetic, accumulation, and lowering choices explicit. The [August 2026 work log](floating-point/work-log.md) records historical shader work, not current qualification.
