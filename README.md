@@ -39,3 +39,7 @@ The reconciled design rationale is in [`notes/architectural-compilation.md`](not
 ## Floating-point semantic references
 
 [The floating-point contract](floating-point/semantics.md) separates F16/F32 value width, arithmetic implementation, Arm calling conventions, scalar/vector execution, and GPU precision. [Numeric types as maps](notes/numeric-types-as-maps.md) keeps conversion, rounding, arithmetic, accumulation, and lowering choices explicit. The [August 2026 work log](floating-point/work-log.md) records historical shader work, not current qualification.
+
+## Integer-multiplication research source
+
+[OpenAI's 2026 *Integer multiplication below n log n* preprint](integer-multiplication/openai-2026/README.md) is archived with its original PDF and license. The accompanying note separates the stated fixed-tape asymptotic theorem from paper-to-code verification and practical backend measurements; no implementation or proof verification is claimed here.
