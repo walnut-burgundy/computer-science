@@ -1,0 +1,8 @@
+{
+  "status": "bounded algebraic model executed; cost instrumentation not implemented",
+  "compiler": "Idric 081b9cde0591154839fb5d80d76e5570e0436300, Chez backend",
+  "counted": {"network_cases":32,"address_cases":578,"phase_cases":81,"ring_cases":169,"truncation_assertions":2},
+  "not_counted": ["machine steps","limb arithmetic operations","tape motion","head rewinds","allocation bytes","network preparation","rational elimination","descriptor traffic","full recursion"],
+  "representation": "Idric Integer and explicit binary exponent; host lists",
+  "qualification": "Case counts describe test coverage only. They are not arithmetic operation counts or evidence of the asymptotic saving."
+}

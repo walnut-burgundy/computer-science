@@ -1,0 +1,23 @@
+{
+  "scope": "generated Float32 compiler-boundary probe; no full candidate benchmark",
+  "native_source": "fuego-ironworks/idric-arm-thumb@0ccef59e21415585c265b79360164f7351baa1c5",
+  "idric": "081b9cde0591154839fb5d80d76e5570e0436300",
+  "assembler_linker": "Android NDK 29.0.14206865 clang 21.0.0",
+  "flags": "-march=armv7-a -mthumb -mfpu=vfpv3-d16 -mfloat-abi=softfp; link -nostdlib -static -fuse-ld=lld -Wl,-e,_start,--no-dynamic-linker",
+  "object_target": "armv7a-linux-androideabi21",
+  "execution_target": "armv7a-linux-gnueabihf freestanding ELF under qemu-arm 8.2.2 -cpu cortex-a9",
+  "inputs": "Three fixed exact Float32 cases; three 32-bit argument words per call",
+  "elf_bytes":1120,
+  "function_code_bytes":{"sum_half":50,"difference_half":50},
+  "stack_bytes_per_function":24,
+  "correct_exit":0,
+  "wrong_add_exit":43,
+  "zero_exit":43,
+  "wall_time": "not benchmarked; tool orchestration durations are not execution timings",
+  "peak_memory": "not measured",
+  "setup_conversion_costs": "not benchmarked",
+  "android_execution":"NOT_RUN",
+  "physical_miro_a1":"NOT_RUN",
+  "physical_c67":"NOT_RUN",
+  "candidate_speedup_or_crossover":"not measured"
+}
