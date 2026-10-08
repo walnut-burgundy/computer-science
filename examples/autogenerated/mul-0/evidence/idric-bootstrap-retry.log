@@ -1,0 +1,1451 @@
+make: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+mkdir -p bootstrap-build/idris2_app
+cp /workspace/scratch/90c1f6e122d1/Idric/support/c/libidris2_support.so bootstrap-build/idris2_app/
+sed 's/libidris2_support.so/libidris2_support.so/g; s|__PREFIX__|/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build|g' \
+	bootstrap/idris2_app/idris2.ss \
+	> bootstrap-build/idris2_app/idris2-boot.ss
+/bin/sh ./bootstrap-stage1-chez.sh
+Bootstrapping SCHEME=/workspace/scratch/90c1f6e122d1/Idric/.tools/bin/scheme IDRIS2_VERSION=0.8.0
+Building idris2-boot from idris2-boot.ss
+compiling idris2_app/idris2-boot.ss with output to idris2_app/idris2-boot.so
+bootstrap stage 1 complete
+IDRIS2_CG="chez" /bin/sh ./bootstrap-stage2.sh
+bootstrapping in: /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build
+make[1]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+make -C libs/prelude IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build prelude.ipkg
+ 1/14: Building Builtin (Builtin.idr)
+ 2/14: Building PrimIO (PrimIO.idr)
+ 3/14: Building Prelude.Ops (Prelude/Ops.idr)
+ 4/14: Building Prelude.Basics (Prelude/Basics.idr)
+ 5/14: Building Prelude.EqOrd (Prelude/EqOrd.idr)
+ 6/14: Building Prelude.Num (Prelude/Num.idr)
+ 7/14: Building Prelude.Interfaces (Prelude/Interfaces.idr)
+ 8/14: Building Prelude.Uninhabited (Prelude/Uninhabited.idr)
+ 9/14: Building Prelude.Types (Prelude/Types.idr)
+10/14: Building Prelude.Cast (Prelude/Cast.idr)
+11/14: Building Prelude.Interpolation (Prelude/Interpolation.idr)
+12/14: Building Prelude.Show (Prelude/Show.idr)
+13/14: Building Prelude.IO (Prelude/IO.idr)
+14/14: Building Prelude (Prelude.idr)
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+make -C libs/base IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build base.ipkg
+  1/136: Building System.Term (System/Term.idr)
+  2/136: Building Data.Fuel (Data/Fuel.idr)
+  3/136: Building Control.Function (Control/Function.idr)
+  4/136: Building Data.Bool (Data/Bool.idr)
+  5/136: Building Data.So (Data/So.idr)
+  6/136: Building Control.Relation (Control/Relation.idr)
+  7/136: Building Control.Ord (Control/Ord.idr)
+  8/136: Building Control.Order (Control/Order.idr)
+  9/136: Building Syntax.PreorderReasoning.Ops (Syntax/PreorderReasoning/Ops.idr)
+ 10/136: Building Syntax.PreorderReasoning (Syntax/PreorderReasoning.idr)
+ 11/136: Building Syntax.PreorderReasoning.Generic (Syntax/PreorderReasoning/Generic.idr)
+ 12/136: Building Data.Nat (Data/Nat.idr)
+ 13/136: Building Data.Zippable (Data/Zippable.idr)
+ 14/136: Building Data.List1 (Data/List1.idr)
+ 15/136: Building Data.Maybe (Data/Maybe.idr)
+ 16/136: Building Decidable.Equality.Core (Decidable/Equality/Core.idr)
+ 17/136: Building Data.Fin (Data/Fin.idr)
+ 18/136: Building Data.List (Data/List.idr)
+ 19/136: Building System.Errno (System/Errno.idr)
+ 20/136: Building System.Signal (System/Signal.idr)
+ 21/136: Building Data.Buffer (Data/Buffer.idr)
+ 22/136: Building System.File.Support (System/File/Support.idr)
+ 23/136: Building System.File.Types (System/File/Types.idr)
+ 24/136: Building System.File.Error (System/File/Error.idr)
+ 25/136: Building System.Info (System/Info.idr)
+ 26/136: Building System.File.Mode (System/File/Mode.idr)
+ 27/136: Building System.File.Handle (System/File/Handle.idr)
+ 28/136: Building Data.SnocList (Data/SnocList.idr)
+ 29/136: Building Data.String (Data/String.idr)
+ 30/136: Building System.FFI (System/FFI.idr)
+ 31/136: Building System.File.Meta (System/File/Meta.idr)
+ 32/136: Building System.File.ReadWrite (System/File/ReadWrite.idr)
+ 33/136: Building System.File.Buffer (System/File/Buffer.idr)
+ 34/136: Building System.File.Permissions (System/File/Permissions.idr)
+ 35/136: Building System.Escape (System/Escape.idr)
+ 36/136: Building System.File.Process (System/File/Process.idr)
+ 37/136: Building System.File.Virtual (System/File/Virtual.idr)
+ 38/136: Building System.File (System/File.idr)
+ 39/136: Building System.REPL (System/REPL.idr)
+ 40/136: Building System.Directory (System/Directory.idr)
+ 41/136: Building System.Clock (System/Clock.idr)
+ 42/136: Building System (System.idr)
+ 43/136: Building Control.Monad.Trans (Control/Monad/Trans.idr)
+ 44/136: Building Control.Monad.Error.Either (Control/Monad/Error/Either.idr)
+ 45/136: Building Control.Monad.Maybe (Control/Monad/Maybe.idr)
+ 46/136: Building Data.Either (Data/Either.idr)
+ 47/136: Building Data.List1.Properties (Data/List1/Properties.idr)
+ 48/136: Building Data.These (Data/These.idr)
+ 49/136: Building Decidable.Equality (Decidable/Equality.idr)
+ 50/136: Building Data.DPair (Data/DPair.idr)
+ 51/136: Building Data.Vect (Data/Vect.idr)
+ 52/136: Building Data.Bits (Data/Bits.idr)
+ 53/136: Building Control.Monad.Identity (Control/Monad/Identity.idr)
+ 54/136: Building Control.Monad.RWS.CPS (Control/Monad/RWS/CPS.idr)
+ 55/136: Building Control.Monad.Reader.Reader (Control/Monad/Reader/Reader.idr)
+ 56/136: Building Control.Monad.State.State (Control/Monad/State/State.idr)
+ 57/136: Building Control.Monad.Writer.CPS (Control/Monad/Writer/CPS.idr)
+ 58/136: Building Control.Monad.Error.Interface (Control/Monad/Error/Interface.idr)
+ 59/136: Building Control.Monad.Either (Control/Monad/Either.idr)
+ 60/136: Building Control.Monad.State.Interface (Control/Monad/State/Interface.idr)
+ 61/136: Building Control.Monad.State (Control/Monad/State.idr)
+ 62/136: Building Data.Contravariant (Data/Contravariant.idr)
+ 63/136: Building Data.Morphisms (Data/Morphisms.idr)
+ 64/136: Building Language.Reflection.TT (Language/Reflection/TT.idr)
+ 65/136: Building Language.Reflection.TTImp (Language/Reflection/TTImp.idr)
+ 66/136: Building Language.Reflection (Language/Reflection.idr)
+ 67/136: Building Deriving.Common (Deriving/Common.idr)
+ 68/136: Building Deriving.Traversable (Deriving/Traversable.idr)
+ 69/136: Building Deriving.Show (Deriving/Show.idr)
+ 70/136: Building Deriving.Functor (Deriving/Functor.idr)
+ 71/136: Building Deriving.Foldable (Deriving/Foldable.idr)
+ 72/136: Building Debug.Trace (Debug/Trace.idr)
+ 73/136: Building Control.WellFounded (Control/WellFounded.idr)
+ 74/136: Building Data.Vect.Views (Data/Vect/Views.idr)
+ 75/136: Building Data.Singleton (Data/Singleton.idr)
+ 76/136: Building Data.Vect.Elem (Data/Vect/Elem.idr)
+ 77/136: Building Data.Vect.Quantifiers (Data/Vect/Quantifiers.idr)
+ 78/136: Building Data.Vect.AtIndex (Data/Vect/AtIndex.idr)
+ 79/136: Building Data.SortedMap.Dependent (Data/SortedMap/Dependent.idr)
+ 80/136: Building Data.SortedMap (Data/SortedMap.idr)
+ 81/136: Building Data.SortedSet (Data/SortedSet.idr)
+ 82/136: Building Data.SnocList.Elem (Data/SnocList/Elem.idr)
+ 83/136: Building Data.SnocList.Quantifiers (Data/SnocList/Quantifiers.idr)
+ 84/136: Building Data.SnocList.Operations (Data/SnocList/Operations.idr)
+ 85/136: Building Data.List.HasLength (Data/List/HasLength.idr)
+ 86/136: Building Data.SnocList.HasLength (Data/SnocList/HasLength.idr)
+ 87/136: Building System.Concurrency (System/Concurrency.idr)
+ 88/136: Building Data.IORef (Data/IORef.idr)
+ 89/136: Building Control.Monad.ST (Control/Monad/ST.idr)
+ 90/136: Building Data.Ref (Data/Ref.idr)
+ 91/136: Building Data.Primitives.Views (Data/Primitives/Views.idr)
+ 92/136: Building Data.Primitives.Interpolation (Data/Primitives/Interpolation.idr)
+ 93/136: Building Data.List.AtIndex (Data/List/AtIndex.idr)
+ 94/136: Building Data.Void (Data/Void.idr)
+ 95/136: Building Data.Bool.Decidable (Data/Bool/Decidable.idr)
+ 96/136: Building Data.Nat.Order.Properties (Data/Nat/Order/Properties.idr)
+ 97/136: Building Syntax.WithProof (Syntax/WithProof.idr)
+ 98/136: Building Data.OpenUnion (Data/OpenUnion.idr)
+ 99/136: Building Data.Nat.Views (Data/Nat/Views.idr)
+100/136: Building Data.Fun (Data/Fun.idr)
+101/136: Building Data.Rel (Data/Rel.idr)
+102/136: Building Decidable.Decidable (Decidable/Decidable.idr)
+103/136: Building Data.Nat.Order (Data/Nat/Order.idr)
+104/136: Building Data.List.Elem (Data/List/Elem.idr)
+105/136: Building Data.List1.Elem (Data/List1/Elem.idr)
+106/136: Building Data.List.Quantifiers (Data/List/Quantifiers.idr)
+107/136: Building Data.List1.Quantifiers (Data/List1/Quantifiers.idr)
+108/136: Building Data.List.Views (Data/List/Views.idr)
+109/136: Building Data.Stream (Data/Stream.idr)
+110/136: Building Data.Colist (Data/Colist.idr)
+111/136: Building Data.Colist1 (Data/Colist1.idr)
+112/136: Building Data.List.Lazy (Data/List/Lazy.idr)
+113/136: Building Data.List.Lazy.Quantifiers (Data/List/Lazy/Quantifiers.idr)
+114/136: Building Data.Integral (Data/Integral.idr)
+115/136: Building Data.IOArray.Prims (Data/IOArray/Prims.idr)
+116/136: Building Data.IOArray (Data/IOArray.idr)
+117/136: Building Data.Fin.Properties (Data/Fin/Properties.idr)
+118/136: Building Data.Fin.Split (Data/Fin/Split.idr)
+119/136: Building Data.Fin.Order (Data/Fin/Order.idr)
+120/136: Building Data.Fin.Arith (Data/Fin/Arith.idr)
+121/136: Building Data.Double (Data/Double.idr)
+122/136: Building Data.Bool.Xor (Data/Bool/Xor.idr)
+123/136: Building Data.Bifoldable (Data/Bifoldable.idr)
+124/136: Building Control.Relation.Closure (Control/Relation/Closure.idr)
+125/136: Building Control.Monad.Writer.Interface (Control/Monad/Writer/Interface.idr)
+126/136: Building Control.Monad.Writer (Control/Monad/Writer.idr)
+127/136: Building Control.Monad.Reader.Interface (Control/Monad/Reader/Interface.idr)
+128/136: Building Control.Monad.Reader (Control/Monad/Reader.idr)
+129/136: Building Control.Monad.RWS.Interface (Control/Monad/RWS/Interface.idr)
+130/136: Building Control.Monad.RWS (Control/Monad/RWS.idr)
+131/136: Building Control.Monad.Partial (Control/Monad/Partial.idr)
+132/136: Building Control.Function.FunExt (Control/Function/FunExt.idr)
+133/136: Building Control.Applicative.Const (Control/Applicative/Const.idr)
+134/136: Building Control.App (Control/App.idr)
+135/136: Building Control.App.FileIO (Control/App/FileIO.idr)
+136/136: Building Control.App.Console (Control/App/Console.idr)
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+make -C libs/linear IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build linear.ipkg
+ 1/14: Building Data.Linear.Notation (Data/Linear/Notation.idr)
+ 2/14: Building Control.Linear.LIO (Control/Linear/LIO.idr)
+ 3/14: Building System.Concurrency.Linear (System/Concurrency/Linear.idr)
+ 4/14: Building System.Concurrency.Session (System/Concurrency/Session.idr)
+ 5/14: Building Data.Linear.Bifunctor (Data/Linear/Bifunctor.idr)
+ 6/14: Building Data.Linear.Copies (Data/Linear/Copies.idr)
+ 7/14: Building Data.Linear.Interface (Data/Linear/Interface.idr)
+ 8/14: Building Data.Linear.LNat (Data/Linear/LNat.idr)
+ 9/14: Building Data.Linear.LList (Data/Linear/LList.idr)
+10/14: Building Data.Linear.LVect (Data/Linear/LVect.idr)
+11/14: Building Data.Linear.LMaybe (Data/Linear/LMaybe.idr)
+12/14: Building Data.Linear.List.LQuantifiers (Data/Linear/List/LQuantifiers.idr)
+13/14: Building Data.Linear.LEither (Data/Linear/LEither.idr)
+14/14: Building Data.Linear (Data/Linear.idr)
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+make -C libs/network IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build network.ipkg
+1/5: Building Network.Socket.Data (Network/Socket/Data.idr)
+2/5: Building Network.FFI (Network/FFI.idr)
+3/5: Building Network.Socket.Raw (Network/Socket/Raw.idr)
+4/5: Building Network.Socket (Network/Socket.idr)
+5/5: Building Control.Linear.Network (Control/Linear/Network.idr)
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+make[1]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+make[1]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/bin/
+install /workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/bin
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/bin/idris2_app
+install /workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2_app/* /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/bin/idris2_app
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support'
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/docs
+install -m 644 docs/*.css /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/docs
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/racket
+install -m 644 racket/* /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/racket
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/gambit
+install -m 644 gambit/* /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/gambit
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/js
+install -m 644 js/* /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/js
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support/c'
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/lib
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/c
+install -m 755 libidris2_support.so /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/lib
+install -m 644 libidris2_support.a   /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/lib
+install -m 644 *.h            /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/c
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support/c'
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support/refc'
+cc -Wall -fPIC -O2   -c -o casts.o casts.c
+cc -Wall -fPIC -O2   -c -o clock.o clock.c
+cc -Wall -fPIC -O2   -c -o mathFunctions.o mathFunctions.c
+cc -Wall -fPIC -O2   -c -o memoryManagement.o memoryManagement.c
+cc -Wall -fPIC -O2   -c -o prim.o prim.c
+cc -Wall -fPIC -O2   -c -o refc_util.o refc_util.c
+cc -Wall -fPIC -O2   -c -o runtime.o runtime.c
+cc -Wall -fPIC -O2   -c -o stringOps.o stringOps.c
+cc -Wall -fPIC -O2   -c -o threads.o threads.c
+ar rc libidris2_refc.a buffer.o casts.o clock.o mathFunctions.o memoryManagement.o prim.o refc_util.o runtime.o stringOps.o threads.o
+ranlib libidris2_refc.a
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/refc
+install -m 644 libidris2_refc.a *.h /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/refc
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support/refc'
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support/chez'
+# start library header
+echo "(library (support) (export" > support-sep.ss
+# print the list of exports
+cat support.ss \
+	| sed -n 's|(define (\?\([^ )]*\).*|\1|p' \
+	>> support-sep.ss
+echo ") (import (chezscheme))" >> support-sep.ss
+# copy the code
+cat support.ss >> support-sep.ss
+# close the bracket
+echo ") ; end of (library)" >> support-sep.ss
+mkdir -p /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/chez
+install -m 644 *.ss /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/support/chez
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support/chez'
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support'
+make -C libs/prelude install IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:" IDRIS2_INC_CGS=chez IDRIS2_PREFIX=/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --install prelude.ipkg
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Builtin.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Builtin.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Builtin.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/PrimIO.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/PrimIO.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/PrimIO.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Basics.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Basics.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Basics.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Cast.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Cast.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Cast.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/EqOrd.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/EqOrd.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/EqOrd.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interfaces.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interfaces.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interfaces.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interpolation.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interpolation.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Interpolation.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/IO.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/IO.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/IO.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Num.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Num.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Num.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Ops.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Ops.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Ops.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Show.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Show.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Show.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Types.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Types.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Types.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Uninhabited.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Uninhabited.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc/2025081600/Prelude/Uninhabited.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0/2025081600/Prelude
+Installing package file for prelude to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/prelude-0.8.0
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+make -C libs/base install    IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:" IDRIS2_INC_CGS=chez IDRIS2_PREFIX=/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --install base.ipkg
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/Console.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/Console.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/Console.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/FileIO.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/FileIO.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/App/FileIO.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/App
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Applicative/Const.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Applicative
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Applicative/Const.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Applicative
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Applicative/Const.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Applicative
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function/FunExt.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Function
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function/FunExt.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Function
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Function/FunExt.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Function
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Either.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Either.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Either.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Either.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Either.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Either.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Error/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Error
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Identity.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Identity.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Identity.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Maybe.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Maybe.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Maybe.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Partial.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Partial.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Partial.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/CPS.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/CPS.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/CPS.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/RWS/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/RWS
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Reader.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Reader.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Reader/Reader.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Reader
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/ST.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/ST.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/ST.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/State.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/State.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/State/State.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/State
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Trans.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Trans.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Trans.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/CPS.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/CPS.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/CPS.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Monad/Writer/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Monad/Writer
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Ord.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Ord.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Ord.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Order.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Order.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Order.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation/Closure.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Relation
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation/Closure.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Relation
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/Relation/Closure.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control/Relation
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/WellFounded.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/WellFounded.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Control/WellFounded.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Control
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bifoldable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bifoldable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bifoldable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bits.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bits.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bits.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Decidable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Decidable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Decidable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Xor.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Xor.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Bool/Xor.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Bool
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Buffer.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Buffer.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Buffer.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist1.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist1.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Colist1.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Contravariant.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Contravariant.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Contravariant.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Double.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Double.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Double.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/DPair.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/DPair.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/DPair.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Either.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Either.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Either.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Arith.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Arith.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Arith.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Order.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Order.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Order.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Properties.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Properties.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Properties.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Split.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Split.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fin/Split.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Fin
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fuel.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fuel.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fuel.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fun.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fun.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Fun.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray/Prims.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/IOArray
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray/Prims.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/IOArray
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IOArray/Prims.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/IOArray
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IORef.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IORef.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/IORef.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Integral.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Integral.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Integral.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/AtIndex.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/AtIndex.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/AtIndex.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Elem.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Elem.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Elem.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/HasLength.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/HasLength.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/HasLength.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy/Quantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List/Lazy
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy/Quantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List/Lazy
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Lazy/Quantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List/Lazy
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Quantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Quantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Quantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Views.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Views.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List/Views.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Elem.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Elem.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Elem.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Properties.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Properties.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Properties.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Quantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Quantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/List1/Quantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/List1
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Maybe.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Maybe.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Maybe.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Morphisms.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Morphisms.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Morphisms.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order/Properties.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat/Order
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order/Properties.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat/Order
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Order/Properties.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat/Order
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Views.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Views.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Nat/Views.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Nat
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/OpenUnion.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/OpenUnion.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/OpenUnion.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Interpolation.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Interpolation.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Interpolation.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Views.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Views.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Primitives/Views.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Primitives
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Ref.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Ref.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Ref.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Rel.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Rel.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Rel.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Singleton.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Singleton.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Singleton.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Elem.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Elem.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Elem.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/HasLength.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/HasLength.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/HasLength.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Operations.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Operations.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Operations.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Quantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Quantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SnocList/Quantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SnocList
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/So.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/So.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/So.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap/Dependent.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SortedMap
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap/Dependent.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SortedMap
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedMap/Dependent.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/SortedMap
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedSet.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedSet.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/SortedSet.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Stream.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Stream.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Stream.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/String.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/String.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/String.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/These.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/These.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/These.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/AtIndex.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/AtIndex.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/AtIndex.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Elem.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Elem.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Elem.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Quantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Quantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Quantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Views.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Views.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Vect/Views.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data/Vect
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Void.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Void.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Void.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Zippable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Zippable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Data/Zippable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Debug/Trace.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Debug
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Debug/Trace.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Debug
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Debug/Trace.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Debug
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Decidable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Decidable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Decidable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality/Core.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable/Equality
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality/Core.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable/Equality
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Decidable/Equality/Core.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Decidable/Equality
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Common.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Common.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Common.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Foldable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Foldable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Foldable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Functor.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Functor.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Functor.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Show.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Show.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Show.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Traversable.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Traversable.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Deriving/Traversable.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Deriving
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TT.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TT.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TT.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TTImp.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TTImp.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Language/Reflection/TTImp.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Language/Reflection
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Ops.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Ops.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Ops.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Generic.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Generic.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/PreorderReasoning/Generic.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax/PreorderReasoning
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/WithProof.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/WithProof.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/Syntax/WithProof.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/Syntax
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Clock.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Clock.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Clock.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Concurrency.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Concurrency.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Concurrency.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Directory.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Directory.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Directory.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Errno.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Errno.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Errno.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Escape.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Escape.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Escape.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/FFI.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/FFI.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/FFI.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Buffer.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Buffer.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Buffer.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Error.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Error.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Error.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Handle.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Handle.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Handle.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Meta.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Meta.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Meta.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Mode.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Mode.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Mode.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Permissions.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Permissions.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Permissions.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Process.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Process.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Process.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/ReadWrite.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/ReadWrite.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/ReadWrite.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Support.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Support.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Support.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Types.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Types.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Types.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Virtual.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Virtual.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/File/Virtual.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System/File
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Info.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Info.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Info.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/REPL.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/REPL.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/REPL.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Signal.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Signal.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Signal.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Term.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Term.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc/2025081600/System/Term.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0/2025081600/System
+Installing package file for base to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/base-0.8.0
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+make -C libs/linear install  IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:" IDRIS2_INC_CGS=chez IDRIS2_PREFIX=/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --install linear.ipkg
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Control/Linear/LIO.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Control/Linear/LIO.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Control/Linear/LIO.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Bifunctor.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Bifunctor.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Bifunctor.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Copies.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Copies.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Copies.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Interface.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Interface.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Interface.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LEither.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LEither.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LEither.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LList.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LList.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LList.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/List/LQuantifiers.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/List/LQuantifiers.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/List/LQuantifiers.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear/List
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LMaybe.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LMaybe.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LMaybe.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LNat.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LNat.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LNat.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LVect.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LVect.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/LVect.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Notation.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Notation.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/Data/Linear/Notation.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/Data/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Linear.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Linear.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Linear.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Session.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Session.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc/2025081600/System/Concurrency/Session.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0/2025081600/System/Concurrency
+Installing package file for linear to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/linear-0.8.0
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+make -C libs/network install IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:" IDRIS2_INC_CGS=chez IDRIS2_PREFIX=/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --install network.ipkg
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Control/Linear/Network.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Control/Linear/Network.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Control/Linear/Network.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Control/Linear
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Data.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Data.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Data.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Raw.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Raw.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/Socket/Raw.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network/Socket
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/FFI.ttc to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/FFI.ttm to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing /workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc/2025081600/Network/FFI.so to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0/2025081600/Network
+Installing package file for network to /workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/idris2-0.8.0/network-0.8.0
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+make[1]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+make[1]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+make -C libs/prelude clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+make -C libs/base clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+make -C libs/contrib clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/contrib'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/contrib'
+make -C libs/network clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+make -C libs/test clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/test'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/test'
+make -C libs/linear clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+make -C libs/papers clean
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/papers'
+rm -f -r build
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/papers'
+make[1]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+make[1]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+make /workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+echo "-- @""generated" > src/IdrisPaths.idr
+echo 'module IdrisPaths' >> src/IdrisPaths.idr
+echo 'export idrisVersion : ((Nat,Nat,Nat), String); idrisVersion = ((0,8,0), "081b9cde0")' >> src/IdrisPaths.idr
+echo 'export yprefix : String; yprefix="/root/.idris2"' >> src/IdrisPaths.idr
+/workspace/scratch/90c1f6e122d1/Idric/bootstrap-build/bin/idris2 --build idris2.ipkg
+  1/289: Building Libraries.Data.String.Extra (src/Libraries/Data/String/Extra.idr)
+  2/289: Building Libraries.Data.Span (src/Libraries/Data/Span.idr)
+  3/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Doc (src/Libraries/Text/PrettyPrint/Prettyprinter/Doc.idr)
+  4/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Symbols (src/Libraries/Text/PrettyPrint/Prettyprinter/Symbols.idr)
+  5/289: Building Libraries.Text.PrettyPrint.Prettyprinter (src/Libraries/Text/PrettyPrint/Prettyprinter.idr)
+  6/289: Building Idris.Env (src/Idris/Env.idr)
+  7/289: Building Libraries.Text.Token (src/Libraries/Text/Token.idr)
+  8/289: Building Libraries.Control.Delayed (src/Libraries/Control/Delayed.idr)
+  9/289: Building Libraries.Text.Bounded (src/Libraries/Text/Bounded.idr)
+ 10/289: Building Libraries.Text.Lexer.Core (src/Libraries/Text/Lexer/Core.idr)
+ 11/289: Building Libraries.Text.Quantity (src/Libraries/Text/Quantity.idr)
+ 12/289: Building Libraries.Text.Lexer (src/Libraries/Text/Lexer.idr)
+ 13/289: Building Libraries.Text.Parser.Core (src/Libraries/Text/Parser/Core.idr)
+ 14/289: Building Libraries.Text.Parser (src/Libraries/Text/Parser.idr)
+ 15/289: Building Libraries.Utils.Path (src/Libraries/Utils/Path.idr)
+ 16/289: Building Core.Name.Namespace (src/Core/Name/Namespace.idr)
+ 17/289: Building Core.FC (src/Core/FC.idr)
+ 18/289: Building Libraries.Decidable.Equality (src/Libraries/Decidable/Equality.idr)
+ 19/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Render.String (src/Libraries/Text/PrettyPrint/Prettyprinter/Render/String.idr)
+ 20/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Util (src/Libraries/Text/PrettyPrint/Prettyprinter/Util.idr)
+ 21/289: Building Libraries.Utils.String (src/Libraries/Utils/String.idr)
+ 22/289: Building Libraries.Data.IOMatrix (src/Libraries/Data/IOMatrix.idr)
+ 23/289: Building Libraries.Text.Distance.Levenshtein (src/Libraries/Text/Distance/Levenshtein.idr)
+ 24/289: Building Core.Name (src/Core/Name.idr)
+ 25/289: Building Libraries.Data.List.HasLength (src/Libraries/Data/List/HasLength.idr)
+ 26/289: Building Libraries.Data.List.SizeOf (src/Libraries/Data/List/SizeOf.idr)
+ 27/289: Building Libraries.Data.NatSet (src/Libraries/Data/NatSet.idr)
+ 28/289: Building Libraries.Data.List.Thin (src/Libraries/Data/List/Thin.idr)
+ 29/289: Building Core.Name.Scoped (src/Core/Name/Scoped.idr)
+ 30/289: Building Libraries.Data.NameMap (src/Libraries/Data/NameMap.idr)
+ 31/289: Building Libraries.Data.SnocList.HasLength (src/Libraries/Data/SnocList/HasLength.idr)
+ 32/289: Building Libraries.Data.SnocList.SizeOf (src/Libraries/Data/SnocList/SizeOf.idr)
+ 33/289: Building Algebra.Semiring (src/Algebra/Semiring.idr)
+ 34/289: Building Algebra.Preorder (src/Algebra/Preorder.idr)
+ 35/289: Building Algebra.ZeroOneOmega (src/Algebra/ZeroOneOmega.idr)
+ 36/289: Building Algebra (src/Algebra.idr)
+ 37/289: Building Core.TT.Binder (src/Core/TT/Binder.idr)
+ 38/289: Building Idris.Pretty.Annotations (src/Idris/Pretty/Annotations.idr)
+ 39/289: Building Libraries.Data.Ordering.Extra (src/Libraries/Data/Ordering/Extra.idr)
+ 40/289: Building Core.TT.Primitive (src/Core/TT/Primitive.idr)
+ 41/289: Building Libraries.Data.Erased (src/Libraries/Data/Erased.idr)
+ 42/289: Building Core.TT.Var (src/Core/TT/Var.idr)
+ 43/289: Building Core.TT.Subst (src/Core/TT/Subst.idr)
+ 44/289: Building Core.TT.Term (src/Core/TT/Term.idr)
+ 45/289: Building Core.TT.Term.Subst (src/Core/TT/Term/Subst.idr)
+ 46/289: Building Core.TT (src/Core/TT.idr)
+ 47/289: Building Core.CompileExpr (src/Core/CompileExpr.idr)
+ 48/289: Building Core.Case.CaseTree (src/Core/Case/CaseTree.idr)
+ 49/289: Building Libraries.Data.VarSet.Core (src/Libraries/Data/VarSet/Core.idr)
+ 50/289: Building Libraries.Data.VarSet (src/Libraries/Data/VarSet.idr)
+ 51/289: Building Core.Env (src/Core/Env.idr)
+ 52/289: Building Libraries.Data.StringMap (src/Libraries/Data/StringMap.idr)
+ 53/289: Building Libraries.Data.StringTrie (src/Libraries/Data/StringTrie.idr)
+ 54/289: Building Core.Options.Log (src/Core/Options/Log.idr)
+ 55/289: Building Libraries.Data.Record (src/Libraries/Data/Record.idr)
+ 56/289: Building Libraries.Data.WithData (src/Libraries/Data/WithData.idr)
+ 57/289: Building Core.WithData (src/Core/WithData.idr)
+ 58/289: Building Algebra.SizeChange (src/Algebra/SizeChange.idr)
+ 59/289: Building Libraries.Data.IntMap (src/Libraries/Data/IntMap.idr)
+ 60/289: Building Libraries.Data.UserNameMap (src/Libraries/Data/UserNameMap.idr)
+ 61/289: Building Libraries.Data.WithDefault (src/Libraries/Data/WithDefault.idr)
+ 62/289: Building Libraries.Data.SparseMatrix (src/Libraries/Data/SparseMatrix.idr)
+ 63/289: Building Libraries.Utils.Binary (src/Libraries/Utils/Binary.idr)
+ 64/289: Building Libraries.Utils.Scheme (src/Libraries/Utils/Scheme.idr)
+ 65/289: Building Core.Context.Context (src/Core/Context/Context.idr)
+ 66/289: Building Libraries.Data.List01 (src/Libraries/Data/List01.idr)
+ 67/289: Building Libraries.Data.IMaybe (src/Libraries/Data/IMaybe.idr)
+ 68/289: Building Libraries.Data.Tap (src/Libraries/Data/Tap.idr)
+ 69/289: Building Core.Core (src/Core/Core.idr)
+ 70/289: Building Libraries.Data.String.Iterator (src/Libraries/Data/String/Iterator.idr)
+ 71/289: Building Core.Hash (src/Core/Hash.idr)
+ 72/289: Building Idris.Syntax.Pragmas (src/Idris/Syntax/Pragmas.idr)
+ 73/289: Building Core.Options (src/Core/Options.idr)
+ 74/289: Building Core.Context (src/Core/Context.idr)
+ 75/289: Building Libraries.Data.List.Extra (src/Libraries/Data/List/Extra.idr)
+ 76/289: Building Compiler.LambdaLift (src/Compiler/LambdaLift.idr)
+ 77/289: Building Compiler.ANF (src/Compiler/ANF.idr)
+ 78/289: Building Compiler.Opts.Constructor (src/Compiler/Opts/Constructor.idr)
+ 79/289: Building Core.Context.Log (src/Core/Context/Log.idr)
+ 80/289: Building Core.Value (src/Core/Value.idr)
+ 81/289: Building Core.Primitives (src/Core/Primitives.idr)
+ 82/289: Building Core.Normalise.Eval (src/Core/Normalise/Eval.idr)
+ 83/289: Building Core.Normalise.Quote (src/Core/Normalise/Quote.idr)
+ 84/289: Building Core.Normalise.Convert (src/Core/Normalise/Convert.idr)
+ 85/289: Building Core.Normalise (src/Core/Normalise.idr)
+ 86/289: Building Compiler.CompileExpr (src/Compiler/CompileExpr.idr)
+ 87/289: Building Compiler.CaseOpts (src/Compiler/CaseOpts.idr)
+ 88/289: Building Compiler.Opts.ConstantFold (src/Compiler/Opts/ConstantFold.idr)
+ 89/289: Building Compiler.Opts.Identity (src/Compiler/Opts/Identity.idr)
+ 90/289: Building Compiler.Opts.InlineHeuristics (src/Compiler/Opts/InlineHeuristics.idr)
+ 91/289: Building Libraries.Data.List.LengthMatch (src/Libraries/Data/List/LengthMatch.idr)
+ 92/289: Building Compiler.Inline (src/Compiler/Inline.idr)
+ 93/289: Building Core.Ord (src/Core/Ord.idr)
+ 94/289: Building Compiler.Opts.CSE (src/Compiler/Opts/CSE.idr)
+ 95/289: Building Compiler.VMCode (src/Compiler/VMCode.idr)
+ 96/289: Building Libraries.Data.PosMap (src/Libraries/Data/PosMap.idr)
+ 97/289: Building Core.Binary.Prims (src/Core/Binary/Prims.idr)
+ 98/289: Building Core.TTC (src/Core/TTC.idr)
+ 99/289: Building Core.UnifyState (src/Core/UnifyState.idr)
+100/289: Building Core.Binary (src/Core/Binary.idr)
+101/289: Building IdrisPaths (src/IdrisPaths.idr)
+102/289: Building Libraries.Data.Version (src/Libraries/Data/Version.idr)
+103/289: Building Idris.Version (src/Idris/Version.idr)
+104/289: Building Libraries.Text.Literate (src/Libraries/Text/Literate.idr)
+105/289: Building Parser.Unlit (src/Parser/Unlit.idr)
+106/289: Building Core.Directory (src/Core/Directory.idr)
+107/289: Building TTImp.TTImp (src/TTImp/TTImp.idr)
+108/289: Building Libraries.Data.ANameMap (src/Libraries/Data/ANameMap.idr)
+109/289: Building Idris.Syntax (src/Idris/Syntax.idr)
+110/289: Building Compiler.Common (src/Compiler/Common.idr)
+111/289: Building Core.InitPrimitives (src/Core/InitPrimitives.idr)
+112/289: Building Protocol.SExp (src/Protocol/SExp.idr)
+113/289: Building Protocol.IDE.Decoration (src/Protocol/IDE/Decoration.idr)
+114/289: Building Core.Metadata (src/Core/Metadata.idr)
+115/289: Building Idris.Syntax.Traversals (src/Idris/Syntax/Traversals.idr)
+116/289: Building TTImp.TTImp.Functor (src/TTImp/TTImp/Functor.idr)
+117/289: Building TTImp.Unelab (src/TTImp/Unelab.idr)
+118/289: Building TTImp.Utils (src/TTImp/Utils.idr)
+119/289: Building Idris.Resugar (src/Idris/Resugar.idr)
+120/289: Building Idris.REPL.Opts (src/Idris/REPL/Opts.idr)
+121/289: Building Libraries.Control.ANSI.CSI (src/Libraries/Control/ANSI/CSI.idr)
+122/289: Building Libraries.Control.ANSI.SGR (src/Libraries/Control/ANSI/SGR.idr)
+123/289: Building Libraries.Control.ANSI (src/Libraries/Control/ANSI.idr)
+124/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Render.Terminal (src/Libraries/Text/PrettyPrint/Prettyprinter/Render/Terminal.idr)
+125/289: Building Idris.Pretty.Render (src/Idris/Pretty/Render.idr)
+126/289: Building Idris.Pretty (src/Idris/Pretty.idr)
+127/289: Building Protocol.Hex (src/Protocol/Hex.idr)
+128/289: Building Protocol.IDE.Command (src/Protocol/IDE/Command.idr)
+129/289: Building Protocol.IDE.Formatting (src/Protocol/IDE/Formatting.idr)
+130/289: Building Protocol.IDE.FileContext (src/Protocol/IDE/FileContext.idr)
+131/289: Building Protocol.IDE.Holes (src/Protocol/IDE/Holes.idr)
+132/289: Building Protocol.IDE.Result (src/Protocol/IDE/Result.idr)
+133/289: Building Protocol.IDE.Highlight (src/Protocol/IDE/Highlight.idr)
+134/289: Building Parser.Lexer.Common (src/Parser/Lexer/Common.idr)
+135/289: Building Libraries.Text.Lexer.Tokenizer (src/Libraries/Text/Lexer/Tokenizer.idr)
+136/289: Building Parser.Support.Escaping (src/Parser/Support/Escaping.idr)
+137/289: Building Protocol.SExp.Parser (src/Protocol/SExp/Parser.idr)
+138/289: Building Protocol.IDE (src/Protocol/IDE.idr)
+139/289: Building Idris.IDEMode.Commands (src/Idris/IDEMode/Commands.idr)
+140/289: Building Idris.IDEMode.Holes (src/Idris/IDEMode/Holes.idr)
+141/289: Building Idris.Syntax.Builtin (src/Idris/Syntax/Builtin.idr)
+142/289: Building Idris.Syntax.Views (src/Idris/Syntax/Views.idr)
+143/289: Building Idris.Doc.Display (src/Idris/Doc/Display.idr)
+144/289: Building Core.TT.Traversals (src/Core/TT/Traversals.idr)
+145/289: Building TTImp.Elab.Prim (src/TTImp/Elab/Prim.idr)
+146/289: Building Idris.Doc.Annotations (src/Idris/Doc/Annotations.idr)
+147/289: Building Libraries.Utils.Octal (src/Libraries/Utils/Octal.idr)
+148/289: Building Parser.Lexer.Source (src/Parser/Lexer/Source.idr)
+149/289: Building Libraries.Data.List.Quantifiers.Extra (src/Libraries/Data/List/Quantifiers/Extra.idr)
+150/289: Building Idris.Doc.Keywords (src/Idris/Doc/Keywords.idr)
+151/289: Building Idris.Doc.Brackets (src/Idris/Doc/Brackets.idr)
+152/289: Building Idris.Doc.String (src/Idris/Doc/String.idr)
+153/289: Building Idris.CommandLine (src/Idris/CommandLine.idr)
+154/289: Building Core.GetType (src/Core/GetType.idr)
+155/289: Building Core.Unify (src/Core/Unify.idr)
+156/289: Building Idris.Error (src/Idris/Error.idr)
+157/289: Building Parser.Lexer.Package (src/Parser/Lexer/Package.idr)
+158/289: Building Parser.Rule.Package (src/Parser/Rule/Package.idr)
+159/289: Building Parser.Support (src/Parser/Support.idr)
+160/289: Building Parser.Package (src/Parser/Package.idr)
+161/289: Building Libraries.System.Directory.Tree (src/Libraries/System/Directory/Tree.idr)
+162/289: Building Libraries.Text.PrettyPrint.Prettyprinter.Render.HTML (src/Libraries/Text/PrettyPrint/Prettyprinter/Render/HTML.idr)
+163/289: Building Libraries.Text.PrettyPrint.Prettyprinter.SimpleDocTree (src/Libraries/Text/PrettyPrint/Prettyprinter/SimpleDocTree.idr)
+164/289: Building Idris.Package.Types (src/Idris/Package/Types.idr)
+165/289: Building Idris.Doc.HTML (src/Idris/Doc/HTML.idr)
+166/289: Building Parser.Rule.Source (src/Parser/Rule/Source.idr)
+167/289: Building Parser.Source (src/Parser/Source.idr)
+168/289: Building Idris.Parser.Let (src/Idris/Parser/Let.idr)
+169/289: Building Idris.Parser (src/Idris/Parser.idr)
+170/289: Building Compiler.RefC.CC (src/Compiler/RefC/CC.idr)
+171/289: Building Compiler.Generated (src/Compiler/Generated.idr)
+172/289: Building Libraries.Data.DList (src/Libraries/Data/DList.idr)
+173/289: Building Compiler.RefC.RefC (src/Compiler/RefC/RefC.idr)
+174/289: Building Libraries.Data.Graph (src/Libraries/Data/Graph.idr)
+175/289: Building Compiler.Opts.ToplevelConstants (src/Compiler/Opts/ToplevelConstants.idr)
+176/289: Building Libraries.Data.String.Builder (src/Libraries/Data/String/Builder.idr)
+177/289: Building Compiler.Scheme.Common (src/Compiler/Scheme/Common.idr)
+178/289: Building Compiler.Scheme.Chez (src/Compiler/Scheme/Chez.idr)
+179/289: Building Compiler.Separate (src/Compiler/Separate.idr)
+180/289: Building Compiler.Scheme.ChezSep (src/Compiler/Scheme/ChezSep.idr)
+181/289: Building Compiler.Scheme.Racket (src/Compiler/Scheme/Racket.idr)
+182/289: Building Compiler.Scheme.Gambit (src/Compiler/Scheme/Gambit.idr)
+183/289: Building Compiler.ES.Ast (src/Compiler/ES/Ast.idr)
+184/289: Building Compiler.ES.Doc (src/Compiler/ES/Doc.idr)
+185/289: Building Libraries.Data.NameMap.Traversable (src/Libraries/Data/NameMap/Traversable.idr)
+186/289: Building Compiler.NoMangle (src/Compiler/NoMangle.idr)
+187/289: Building Compiler.ES.State (src/Compiler/ES/State.idr)
+188/289: Building Compiler.ES.ToAst (src/Compiler/ES/ToAst.idr)
+189/289: Building Compiler.ES.TailRec (src/Compiler/ES/TailRec.idr)
+190/289: Building Compiler.ES.Codegen (src/Compiler/ES/Codegen.idr)
+191/289: Building Compiler.ES.Node (src/Compiler/ES/Node.idr)
+192/289: Building Compiler.ES.Javascript (src/Compiler/ES/Javascript.idr)
+193/289: Building Compiler.Interpreter.VMCode (src/Compiler/Interpreter/VMCode.idr)
+194/289: Building TTImp.Elab.Check (src/TTImp/Elab/Check.idr)
+195/289: Building Core.Termination.CallGraph (src/Core/Termination/CallGraph.idr)
+196/289: Building Core.Termination.References (src/Core/Termination/References.idr)
+197/289: Building Core.Termination.Positivity (src/Core/Termination/Positivity.idr)
+198/289: Building Core.Termination.SizeChange (src/Core/Termination/SizeChange.idr)
+199/289: Building Core.Termination (src/Core/Termination.idr)
+200/289: Building TTImp.BindImplicits (src/TTImp/BindImplicits.idr)
+201/289: Building TTImp.Parser (src/TTImp/Parser.idr)
+202/289: Building TTImp.ProcessBuiltin (src/TTImp/ProcessBuiltin.idr)
+203/289: Building Core.Context.Data (src/Core/Context/Data.idr)
+204/289: Building TTImp.Elab.Utils (src/TTImp/Elab/Utils.idr)
+205/289: Building Core.LinearCheck (src/Core/LinearCheck.idr)
+206/289: Building TTImp.Elab.Delayed (src/TTImp/Elab/Delayed.idr)
+207/289: Building TTImp.Elab.Ambiguity (src/TTImp/Elab/Ambiguity.idr)
+208/289: Building TTImp.Elab.Dot (src/TTImp/Elab/Dot.idr)
+209/289: Building TTImp.Elab.App (src/TTImp/Elab/App.idr)
+210/289: Building Core.Case.Util (src/Core/Case/Util.idr)
+211/289: Building Core.Coverage (src/Core/Coverage.idr)
+212/289: Building TTImp.Elab.ImplicitBind (src/TTImp/Elab/ImplicitBind.idr)
+213/289: Building TTImp.Elab.As (src/TTImp/Elab/As.idr)
+214/289: Building TTImp.Elab.Binders (src/TTImp/Elab/Binders.idr)
+215/289: Building TTImp.ProcessFnOpt (src/TTImp/ProcessFnOpt.idr)
+216/289: Building TTImp.Elab.Case (src/TTImp/Elab/Case.idr)
+217/289: Building TTImp.Elab.Hole (src/TTImp/Elab/Hole.idr)
+218/289: Building TTImp.Elab.Lazy (src/TTImp/Elab/Lazy.idr)
+219/289: Building TTImp.Elab.Local (src/TTImp/Elab/Local.idr)
+220/289: Building Core.Reflect (src/Core/Reflect.idr)
+221/289: Building TTImp.Reflect (src/TTImp/Reflect.idr)
+222/289: Building TTImp.Elab.Quote (src/TTImp/Elab/Quote.idr)
+223/289: Building TTImp.Elab.Record (src/TTImp/Elab/Record.idr)
+224/289: Building TTImp.Elab.Rewrite (src/TTImp/Elab/Rewrite.idr)
+225/289: Building TTImp.Elab.RunElab (src/TTImp/Elab/RunElab.idr)
+226/289: Building TTImp.Elab.Term (src/TTImp/Elab/Term.idr)
+227/289: Building TTImp.Elab (src/TTImp/Elab.idr)
+228/289: Building TTImp.ProcessData (src/TTImp/ProcessData.idr)
+229/289: Building Libraries.Data.List01.Quantifiers (src/Libraries/Data/List01/Quantifiers.idr)
+230/289: Building Core.Case.CaseBuilder (src/Core/Case/CaseBuilder.idr)
+231/289: Building Core.Case.CaseTree.Pretty (src/Core/Case/CaseTree/Pretty.idr)
+232/289: Building Core.Transform (src/Core/Transform.idr)
+233/289: Building TTImp.Impossible (src/TTImp/Impossible.idr)
+234/289: Building TTImp.TTImp.Traversals (src/TTImp/TTImp/Traversals.idr)
+235/289: Building TTImp.PartialEval (src/TTImp/PartialEval.idr)
+236/289: Building TTImp.ProcessType (src/TTImp/ProcessType.idr)
+237/289: Building TTImp.WithClause (src/TTImp/WithClause.idr)
+238/289: Building TTImp.ProcessDef (src/TTImp/ProcessDef.idr)
+239/289: Building TTImp.ProcessParams (src/TTImp/ProcessParams.idr)
+240/289: Building TTImp.ProcessRecord (src/TTImp/ProcessRecord.idr)
+241/289: Building TTImp.ProcessRunElab (src/TTImp/ProcessRunElab.idr)
+242/289: Building TTImp.ProcessTransform (src/TTImp/ProcessTransform.idr)
+243/289: Building TTImp.ProcessDecls.Totality (src/TTImp/ProcessDecls/Totality.idr)
+244/289: Building TTImp.ProcessDecls (src/TTImp/ProcessDecls.idr)
+245/289: Building Idris.Elab.Implementation (src/Idris/Elab/Implementation.idr)
+246/289: Building Idris.Elab.Interface (src/Idris/Elab/Interface.idr)
+247/289: Building Idris.Desugar.Mutual (src/Idris/Desugar/Mutual.idr)
+248/289: Building Libraries.Utils.Shunting (src/Libraries/Utils/Shunting.idr)
+249/289: Building Idris.Desugar (src/Idris/Desugar.idr)
+250/289: Building Idris.IDEMode.Pretty (src/Idris/IDEMode/Pretty.idr)
+251/289: Building Idris.REPL.Common (src/Idris/REPL/Common.idr)
+252/289: Building Core.Context.TTC (src/Core/Context/TTC.idr)
+253/289: Building TTImp.TTImp.TTC (src/TTImp/TTImp/TTC.idr)
+254/289: Building Idris.Syntax.TTC (src/Idris/Syntax/TTC.idr)
+255/289: Building Idris.ProcessIdr (src/Idris/ProcessIdr.idr)
+256/289: Building Idris.ModTree (src/Idris/ModTree.idr)
+257/289: Building Core.CompileExpr.Pretty (src/Core/CompileExpr/Pretty.idr)
+258/289: Building Core.Context.Pretty (src/Core/Context/Pretty.idr)
+259/289: Building Core.TT.Views (src/Core/TT/Views.idr)
+260/289: Building Core.SchemeEval.ToScheme (src/Core/SchemeEval/ToScheme.idr)
+261/289: Building Core.SchemeEval.Builtins (src/Core/SchemeEval/Builtins.idr)
+262/289: Building Core.SchemeEval.Compile (src/Core/SchemeEval/Compile.idr)
+263/289: Building Core.SchemeEval.Evaluate (src/Core/SchemeEval/Evaluate.idr)
+264/289: Building Core.SchemeEval.Quote (src/Core/SchemeEval/Quote.idr)
+265/289: Building Core.SchemeEval (src/Core/SchemeEval.idr)
+266/289: Building TTImp.Interactive.CaseSplit (src/TTImp/Interactive/CaseSplit.idr)
+267/289: Building Idris.IDEMode.TokenLine (src/Idris/IDEMode/TokenLine.idr)
+268/289: Building Libraries.Data.String (src/Libraries/Data/String.idr)
+269/289: Building Idris.IDEMode.CaseSplit (src/Idris/IDEMode/CaseSplit.idr)
+270/289: Building Idris.IDEMode.MakeClause (src/Idris/IDEMode/MakeClause.idr)
+271/289: Building Idris.REPL.FuzzySearch (src/Idris/REPL/FuzzySearch.idr)
+272/289: Building Core.AutoSearch (src/Core/AutoSearch.idr)
+273/289: Building TTImp.Interactive.ExprSearch (src/TTImp/Interactive/ExprSearch.idr)
+274/289: Building TTImp.Interactive.GenerateDef (src/TTImp/Interactive/GenerateDef.idr)
+275/289: Building TTImp.Interactive.Intro (src/TTImp/Interactive/Intro.idr)
+276/289: Building TTImp.Interactive.MakeLemma (src/TTImp/Interactive/MakeLemma.idr)
+277/289: Building Idris.REPL (src/Idris/REPL.idr)
+278/289: Building Idris.SetOptions (src/Idris/SetOptions.idr)
+279/289: Building Idris.Package.Init (src/Idris/Package/Init.idr)
+280/289: Building Idris.Package.ToJson (src/Idris/Package/ToJson.idr)
+281/289: Building Idris.Package (src/Idris/Package.idr)
+282/289: Building Idris.IDEMode.Parser (src/Idris/IDEMode/Parser.idr)
+283/289: Building Idris.IDEMode.SyntaxHighlight (src/Idris/IDEMode/SyntaxHighlight.idr)
+284/289: Building TTImp.Interactive.Completion (src/TTImp/Interactive/Completion.idr)
+285/289: Building Idris.IDEMode.REPL (src/Idris/IDEMode/REPL.idr)
+286/289: Building Yaffle.REPL (src/Yaffle/REPL.idr)
+287/289: Building Yaffle.Main (src/Yaffle/Main.idr)
+288/289: Building Idris.Driver (src/Idris/Driver.idr)
+289/289: Building Idris.Main (src/Idris/Main.idr)
+Now compiling the executable: idris2
+cp /workspace/scratch/90c1f6e122d1/Idric/support/c/libidris2_support.so /workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2_app/libidris2_support.so
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+make libs
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+make -C libs/prelude IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build prelude.ipkg
+ 1/14: Building Builtin (Builtin.idr)
+ 2/14: Building PrimIO (PrimIO.idr)
+ 3/14: Building Prelude.Ops (Prelude/Ops.idr)
+ 4/14: Building Prelude.Basics (Prelude/Basics.idr)
+ 5/14: Building Prelude.EqOrd (Prelude/EqOrd.idr)
+ 6/14: Building Prelude.Num (Prelude/Num.idr)
+ 7/14: Building Prelude.Interfaces (Prelude/Interfaces.idr)
+ 8/14: Building Prelude.Uninhabited (Prelude/Uninhabited.idr)
+ 9/14: Building Prelude.Types (Prelude/Types.idr)
+10/14: Building Prelude.Cast (Prelude/Cast.idr)
+11/14: Building Prelude.Interpolation (Prelude/Interpolation.idr)
+12/14: Building Prelude.Show (Prelude/Show.idr)
+13/14: Building Prelude.IO (Prelude/IO.idr)
+14/14: Building Prelude (Prelude.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/prelude'
+make -C libs/base IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build base.ipkg
+  1/136: Building System.Term (System/Term.idr)
+  2/136: Building Data.Fuel (Data/Fuel.idr)
+  3/136: Building Control.Function (Control/Function.idr)
+  4/136: Building Data.Bool (Data/Bool.idr)
+  5/136: Building Data.So (Data/So.idr)
+  6/136: Building Control.Relation (Control/Relation.idr)
+  7/136: Building Control.Ord (Control/Ord.idr)
+  8/136: Building Control.Order (Control/Order.idr)
+  9/136: Building Syntax.PreorderReasoning.Ops (Syntax/PreorderReasoning/Ops.idr)
+ 10/136: Building Syntax.PreorderReasoning (Syntax/PreorderReasoning.idr)
+ 11/136: Building Syntax.PreorderReasoning.Generic (Syntax/PreorderReasoning/Generic.idr)
+ 12/136: Building Data.Nat (Data/Nat.idr)
+ 13/136: Building Data.Zippable (Data/Zippable.idr)
+ 14/136: Building Data.List1 (Data/List1.idr)
+ 15/136: Building Data.Maybe (Data/Maybe.idr)
+ 16/136: Building Decidable.Equality.Core (Decidable/Equality/Core.idr)
+ 17/136: Building Data.Fin (Data/Fin.idr)
+ 18/136: Building Data.List (Data/List.idr)
+ 19/136: Building System.Errno (System/Errno.idr)
+ 20/136: Building System.Signal (System/Signal.idr)
+ 21/136: Building Data.Buffer (Data/Buffer.idr)
+ 22/136: Building System.File.Support (System/File/Support.idr)
+ 23/136: Building System.File.Types (System/File/Types.idr)
+ 24/136: Building System.File.Error (System/File/Error.idr)
+ 25/136: Building System.Info (System/Info.idr)
+ 26/136: Building System.File.Mode (System/File/Mode.idr)
+ 27/136: Building System.File.Handle (System/File/Handle.idr)
+ 28/136: Building Data.SnocList (Data/SnocList.idr)
+ 29/136: Building Data.String (Data/String.idr)
+ 30/136: Building System.FFI (System/FFI.idr)
+ 31/136: Building System.File.Meta (System/File/Meta.idr)
+ 32/136: Building System.File.ReadWrite (System/File/ReadWrite.idr)
+ 33/136: Building System.File.Buffer (System/File/Buffer.idr)
+ 34/136: Building System.File.Permissions (System/File/Permissions.idr)
+ 35/136: Building System.Escape (System/Escape.idr)
+ 36/136: Building System.File.Process (System/File/Process.idr)
+ 37/136: Building System.File.Virtual (System/File/Virtual.idr)
+ 38/136: Building System.File (System/File.idr)
+ 39/136: Building System.REPL (System/REPL.idr)
+ 40/136: Building System.Directory (System/Directory.idr)
+ 41/136: Building System.Clock (System/Clock.idr)
+ 42/136: Building System (System.idr)
+ 43/136: Building Control.Monad.Trans (Control/Monad/Trans.idr)
+ 44/136: Building Control.Monad.Error.Either (Control/Monad/Error/Either.idr)
+ 45/136: Building Control.Monad.Maybe (Control/Monad/Maybe.idr)
+ 46/136: Building Data.Either (Data/Either.idr)
+ 47/136: Building Data.List1.Properties (Data/List1/Properties.idr)
+ 48/136: Building Data.These (Data/These.idr)
+ 49/136: Building Decidable.Equality (Decidable/Equality.idr)
+ 50/136: Building Data.DPair (Data/DPair.idr)
+ 51/136: Building Data.Vect (Data/Vect.idr)
+ 52/136: Building Data.Bits (Data/Bits.idr)
+ 53/136: Building Control.Monad.Identity (Control/Monad/Identity.idr)
+ 54/136: Building Control.Monad.RWS.CPS (Control/Monad/RWS/CPS.idr)
+ 55/136: Building Control.Monad.Reader.Reader (Control/Monad/Reader/Reader.idr)
+ 56/136: Building Control.Monad.State.State (Control/Monad/State/State.idr)
+ 57/136: Building Control.Monad.Writer.CPS (Control/Monad/Writer/CPS.idr)
+ 58/136: Building Control.Monad.Error.Interface (Control/Monad/Error/Interface.idr)
+ 59/136: Building Control.Monad.Either (Control/Monad/Either.idr)
+ 60/136: Building Control.Monad.State.Interface (Control/Monad/State/Interface.idr)
+ 61/136: Building Control.Monad.State (Control/Monad/State.idr)
+ 62/136: Building Data.Contravariant (Data/Contravariant.idr)
+ 63/136: Building Data.Morphisms (Data/Morphisms.idr)
+ 64/136: Building Language.Reflection.TT (Language/Reflection/TT.idr)
+ 65/136: Building Language.Reflection.TTImp (Language/Reflection/TTImp.idr)
+ 66/136: Building Language.Reflection (Language/Reflection.idr)
+ 67/136: Building Deriving.Common (Deriving/Common.idr)
+ 68/136: Building Deriving.Traversable (Deriving/Traversable.idr)
+ 69/136: Building Deriving.Show (Deriving/Show.idr)
+ 70/136: Building Deriving.Functor (Deriving/Functor.idr)
+ 71/136: Building Deriving.Foldable (Deriving/Foldable.idr)
+ 72/136: Building Debug.Trace (Debug/Trace.idr)
+ 73/136: Building Control.WellFounded (Control/WellFounded.idr)
+ 74/136: Building Data.Vect.Views (Data/Vect/Views.idr)
+ 75/136: Building Data.Singleton (Data/Singleton.idr)
+ 76/136: Building Data.Vect.Elem (Data/Vect/Elem.idr)
+ 77/136: Building Data.Vect.Quantifiers (Data/Vect/Quantifiers.idr)
+ 78/136: Building Data.Vect.AtIndex (Data/Vect/AtIndex.idr)
+ 79/136: Building Data.SortedMap.Dependent (Data/SortedMap/Dependent.idr)
+ 80/136: Building Data.SortedMap (Data/SortedMap.idr)
+ 81/136: Building Data.SortedSet (Data/SortedSet.idr)
+ 82/136: Building Data.SnocList.Elem (Data/SnocList/Elem.idr)
+ 83/136: Building Data.SnocList.Quantifiers (Data/SnocList/Quantifiers.idr)
+ 84/136: Building Data.SnocList.Operations (Data/SnocList/Operations.idr)
+ 85/136: Building Data.List.HasLength (Data/List/HasLength.idr)
+ 86/136: Building Data.SnocList.HasLength (Data/SnocList/HasLength.idr)
+ 87/136: Building System.Concurrency (System/Concurrency.idr)
+ 88/136: Building Data.IORef (Data/IORef.idr)
+ 89/136: Building Control.Monad.ST (Control/Monad/ST.idr)
+ 90/136: Building Data.Ref (Data/Ref.idr)
+ 91/136: Building Data.Primitives.Views (Data/Primitives/Views.idr)
+ 92/136: Building Data.Primitives.Interpolation (Data/Primitives/Interpolation.idr)
+ 93/136: Building Data.List.AtIndex (Data/List/AtIndex.idr)
+ 94/136: Building Data.Void (Data/Void.idr)
+ 95/136: Building Data.Bool.Decidable (Data/Bool/Decidable.idr)
+ 96/136: Building Data.Nat.Order.Properties (Data/Nat/Order/Properties.idr)
+ 97/136: Building Syntax.WithProof (Syntax/WithProof.idr)
+ 98/136: Building Data.OpenUnion (Data/OpenUnion.idr)
+ 99/136: Building Data.Nat.Views (Data/Nat/Views.idr)
+100/136: Building Data.Fun (Data/Fun.idr)
+101/136: Building Data.Rel (Data/Rel.idr)
+102/136: Building Decidable.Decidable (Decidable/Decidable.idr)
+103/136: Building Data.Nat.Order (Data/Nat/Order.idr)
+104/136: Building Data.List.Elem (Data/List/Elem.idr)
+105/136: Building Data.List1.Elem (Data/List1/Elem.idr)
+106/136: Building Data.List.Quantifiers (Data/List/Quantifiers.idr)
+107/136: Building Data.List1.Quantifiers (Data/List1/Quantifiers.idr)
+108/136: Building Data.List.Views (Data/List/Views.idr)
+109/136: Building Data.Stream (Data/Stream.idr)
+110/136: Building Data.Colist (Data/Colist.idr)
+111/136: Building Data.Colist1 (Data/Colist1.idr)
+112/136: Building Data.List.Lazy (Data/List/Lazy.idr)
+113/136: Building Data.List.Lazy.Quantifiers (Data/List/Lazy/Quantifiers.idr)
+114/136: Building Data.Integral (Data/Integral.idr)
+115/136: Building Data.IOArray.Prims (Data/IOArray/Prims.idr)
+116/136: Building Data.IOArray (Data/IOArray.idr)
+117/136: Building Data.Fin.Properties (Data/Fin/Properties.idr)
+118/136: Building Data.Fin.Split (Data/Fin/Split.idr)
+119/136: Building Data.Fin.Order (Data/Fin/Order.idr)
+120/136: Building Data.Fin.Arith (Data/Fin/Arith.idr)
+121/136: Building Data.Double (Data/Double.idr)
+122/136: Building Data.Bool.Xor (Data/Bool/Xor.idr)
+123/136: Building Data.Bifoldable (Data/Bifoldable.idr)
+124/136: Building Control.Relation.Closure (Control/Relation/Closure.idr)
+125/136: Building Control.Monad.Writer.Interface (Control/Monad/Writer/Interface.idr)
+126/136: Building Control.Monad.Writer (Control/Monad/Writer.idr)
+127/136: Building Control.Monad.Reader.Interface (Control/Monad/Reader/Interface.idr)
+128/136: Building Control.Monad.Reader (Control/Monad/Reader.idr)
+129/136: Building Control.Monad.RWS.Interface (Control/Monad/RWS/Interface.idr)
+130/136: Building Control.Monad.RWS (Control/Monad/RWS.idr)
+131/136: Building Control.Monad.Partial (Control/Monad/Partial.idr)
+132/136: Building Control.Function.FunExt (Control/Function/FunExt.idr)
+133/136: Building Control.Applicative.Const (Control/Applicative/Const.idr)
+134/136: Building Control.App (Control/App.idr)
+135/136: Building Control.App.FileIO (Control/App/FileIO.idr)
+136/136: Building Control.App.Console (Control/App/Console.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/base'
+make -C libs/contrib IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/contrib'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build contrib.ipkg
+  1/103: Building Data.String.Extra (Data/String/Extra.idr)
+  2/103: Building Text.PrettyPrint.Prettyprinter.Doc (Text/PrettyPrint/Prettyprinter/Doc.idr)
+  3/103: Building Text.PrettyPrint.Prettyprinter.Render.String (Text/PrettyPrint/Prettyprinter/Render/String.idr)
+  4/103: Building Text.PrettyPrint.Prettyprinter.Util (Text/PrettyPrint/Prettyprinter/Util.idr)
+  5/103: Building Text.PrettyPrint.Prettyprinter.SimpleDocTree (Text/PrettyPrint/Prettyprinter/SimpleDocTree.idr)
+  6/103: Building Control.ANSI.CSI (Control/ANSI/CSI.idr)
+  7/103: Building Control.ANSI.SGR (Control/ANSI/SGR.idr)
+  8/103: Building Control.ANSI (Control/ANSI.idr)
+  9/103: Building Text.PrettyPrint.Prettyprinter.Render.Terminal (Text/PrettyPrint/Prettyprinter/Render/Terminal.idr)
+ 10/103: Building Text.PrettyPrint.Prettyprinter.Render.HTML (Text/PrettyPrint/Prettyprinter/Render/HTML.idr)
+ 11/103: Building Control.Delayed (Control/Delayed.idr)
+ 12/103: Building Text.Bounded (Text/Bounded.idr)
+ 13/103: Building Text.Parser.Core (Text/Parser/Core.idr)
+ 14/103: Building Text.Quantity (Text/Quantity.idr)
+ 15/103: Building Text.Token (Text/Token.idr)
+ 16/103: Building Text.Parser (Text/Parser.idr)
+ 17/103: Building Text.Parser.Expression (Text/Parser/Expression.idr)
+ 18/103: Building Text.Lexer.Core (Text/Lexer/Core.idr)
+ 19/103: Building Text.Lexer (Text/Lexer.idr)
+ 20/103: Building Text.Literate (Text/Literate.idr)
+ 21/103: Building Text.PrettyPrint.Prettyprinter.Symbols (Text/PrettyPrint/Prettyprinter/Symbols.idr)
+ 22/103: Building Text.PrettyPrint.Prettyprinter (Text/PrettyPrint/Prettyprinter.idr)
+ 23/103: Building Text.Lexer.Tokenizer (Text/Lexer/Tokenizer.idr)
+ 24/103: Building Data.IOMatrix (Data/IOMatrix.idr)
+ 25/103: Building Data.List.Extra (Data/List/Extra.idr)
+ 26/103: Building Text.Distance.Levenshtein (Text/Distance/Levenshtein.idr)
+ 27/103: Building System.Random (System/Random.idr)
+ 28/103: Building System.Future (System/Future.idr)
+ 29/103: Building System.Path (System/Path.idr)
+ 30/103: Building System.Directory.Tree (System/Directory/Tree.idr)
+ 31/103: Building System.Console.GetOpt (System/Console/GetOpt.idr)
+ 32/103: Building Language.JSON.String.Tokens (Language/JSON/String/Tokens.idr)
+ 33/103: Building Language.JSON.String.Lexer (Language/JSON/String/Lexer.idr)
+ 34/103: Building Language.JSON.String.Parser (Language/JSON/String/Parser.idr)
+ 35/103: Building Language.JSON.String (Language/JSON/String.idr)
+ 36/103: Building Language.JSON.Tokens (Language/JSON/Tokens.idr)
+ 37/103: Building Language.JSON.Lexer (Language/JSON/Lexer.idr)
+ 38/103: Building Language.JSON.Data (Language/JSON/Data.idr)
+ 39/103: Building Language.JSON.Parser (Language/JSON/Parser.idr)
+ 40/103: Building Language.JSON (Language/JSON.idr)
+ 41/103: Building Data.Fun.Extra (Data/Fun/Extra.idr)
+ 42/103: Building Data.Rel.Complement (Data/Rel/Complement.idr)
+ 43/103: Building Decidable.Decidable.Extra (Decidable/Decidable/Extra.idr)
+ 44/103: Building Data.Nat.Equational (Data/Nat/Equational.idr)
+ 45/103: Building Decidable.Order.Strict (Decidable/Order/Strict.idr)
+ 46/103: Building Data.Nat.Order.Strict (Data/Nat/Order/Strict.idr)
+ 47/103: Building Data.Nat.Properties (Data/Nat/Properties.idr)
+ 48/103: Building Data.Nat.Division (Data/Nat/Division.idr)
+ 49/103: Building Data.Fin.Extra (Data/Fin/Extra.idr)
+ 50/103: Building Decidable.Finite.Fin (Decidable/Finite/Fin.idr)
+ 51/103: Building Debug.Buffer (Debug/Buffer.idr)
+ 52/103: Building Data.Vect.Sort (Data/Vect/Sort.idr)
+ 53/103: Building Data.Vect.Properties.Tabulate (Data/Vect/Properties/Tabulate.idr)
+ 54/103: Building Data.Vect.Properties.Index (Data/Vect/Properties/Index.idr)
+ 55/103: Building Data.Vect.Properties.Foldr (Data/Vect/Properties/Foldr.idr)
+ 56/103: Building Data.Vect.Extra (Data/Vect/Extra.idr)
+ 57/103: Building Data.Vect.Properties.Map (Data/Vect/Properties/Map.idr)
+ 58/103: Building Data.Vect.Properties.Fin (Data/Vect/Properties/Fin.idr)
+ 59/103: Building Data.Vect.Properties (Data/Vect/Properties.idr)
+ 60/103: Building Data.Validated (Data/Validated.idr)
+ 61/103: Building Data.Telescope.Telescope (Data/Telescope/Telescope.idr)
+ 62/103: Building Data.Telescope.Segment (Data/Telescope/Segment.idr)
+ 63/103: Building Data.Telescope.SimpleFun (Data/Telescope/SimpleFun.idr)
+ 64/103: Building Data.Telescope.Fun (Data/Telescope/Fun.idr)
+ 65/103: Building Data.Telescope.Congruence (Data/Telescope/Congruence.idr)
+ 66/103: Building Data.Telescope (Data/Telescope.idr)
+ 67/103: Building Data.String.Position (Data/String/Position.idr)
+ 68/103: Building Data.List.Alternating (Data/List/Alternating.idr)
+ 69/103: Building Data.String.Parser (Data/String/Parser.idr)
+ 70/103: Building Data.String.Parser.Expression (Data/String/Parser/Expression.idr)
+ 71/103: Building Data.String.Iterator (Data/String/Iterator.idr)
+ 72/103: Building Data.String.Interpolation (Data/String/Interpolation.idr)
+ 73/103: Building Data.Stream.Extra (Data/Stream/Extra.idr)
+ 74/103: Building Data.Seq.Internal (Data/Seq/Internal.idr)
+ 75/103: Building Data.Seq.Unsized (Data/Seq/Unsized.idr)
+ 76/103: Building Data.Seq.Sized (Data/Seq/Sized.idr)
+ 77/103: Building Data.Path (Data/Path.idr)
+ 78/103: Building Data.Nat.Order.Relation (Data/Nat/Order/Relation.idr)
+ 79/103: Building Data.Nat.Fib (Data/Nat/Fib.idr)
+ 80/103: Building Data.Nat.Factor (Data/Nat/Factor.idr)
+ 81/103: Building Data.Nat.Fact (Data/Nat/Fact.idr)
+ 82/103: Building Data.Monoid.Exponentiation (Data/Monoid/Exponentiation.idr)
+ 83/103: Building Data.Nat.Exponentiation (Data/Nat/Exponentiation.idr)
+ 84/103: Building Data.Nat.Ack (Data/Nat/Ack.idr)
+ 85/103: Building Data.Logic.Propositional (Data/Logic/Propositional.idr)
+ 86/103: Building Data.List.Elem.Extra (Data/List/Elem/Extra.idr)
+ 87/103: Building Data.List.Sufficient (Data/List/Sufficient.idr)
+ 88/103: Building Data.List.Reverse (Data/List/Reverse.idr)
+ 89/103: Building Data.List.Equalities (Data/List/Equalities.idr)
+ 90/103: Building Data.List.Views.Extra (Data/List/Views/Extra.idr)
+ 91/103: Building Data.List.Palindrome (Data/List/Palindrome.idr)
+ 92/103: Building Data.List.TailRec (Data/List/TailRec.idr)
+ 93/103: Building Data.Linear.Array (Data/Linear/Array.idr)
+ 94/103: Building Data.Late (Data/Late.idr)
+ 95/103: Building Data.Order (Data/Order.idr)
+ 96/103: Building Data.Int.Order (Data/Int/Order.idr)
+ 97/103: Building Data.IMaybe (Data/IMaybe.idr)
+ 98/103: Building Data.Fun.Graph (Data/Fun/Graph.idr)
+ 99/103: Building Data.Binary.Digit (Data/Binary/Digit.idr)
+100/103: Building Data.Binary (Data/Binary.idr)
+101/103: Building Control.Validation (Control/Validation.idr)
+102/103: Building Control.Category (Control/Category.idr)
+103/103: Building Control.Arrow (Control/Arrow.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/contrib'
+make -C libs/linear IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build linear.ipkg
+ 1/14: Building Data.Linear.Notation (Data/Linear/Notation.idr)
+ 2/14: Building Control.Linear.LIO (Control/Linear/LIO.idr)
+ 3/14: Building System.Concurrency.Linear (System/Concurrency/Linear.idr)
+ 4/14: Building System.Concurrency.Session (System/Concurrency/Session.idr)
+ 5/14: Building Data.Linear.Bifunctor (Data/Linear/Bifunctor.idr)
+ 6/14: Building Data.Linear.Copies (Data/Linear/Copies.idr)
+ 7/14: Building Data.Linear.Interface (Data/Linear/Interface.idr)
+ 8/14: Building Data.Linear.LNat (Data/Linear/LNat.idr)
+ 9/14: Building Data.Linear.LList (Data/Linear/LList.idr)
+10/14: Building Data.Linear.LVect (Data/Linear/LVect.idr)
+11/14: Building Data.Linear.LMaybe (Data/Linear/LMaybe.idr)
+12/14: Building Data.Linear.List.LQuantifiers (Data/Linear/List/LQuantifiers.idr)
+13/14: Building Data.Linear.LEither (Data/Linear/LEither.idr)
+14/14: Building Data.Linear (Data/Linear.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/linear'
+make -C libs/network IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build network.ipkg
+1/5: Building Network.Socket.Data (Network/Socket/Data.idr)
+2/5: Building Network.FFI (Network/FFI.idr)
+3/5: Building Network.Socket.Raw (Network/Socket/Raw.idr)
+4/5: Building Network.Socket (Network/Socket.idr)
+5/5: Building Control.Linear.Network (Control/Linear/Network.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/network'
+make -C libs/test IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/test'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build test.ipkg
+1/1: Building Test.Golden (Test/Golden.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/test'
+make -C libs/papers IDRIS2=/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 IDRIS2_INC_CGS=chez IDRIS2_PATH="/workspace/scratch/90c1f6e122d1/Idric/libs/prelude/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/base/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/linear/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/network/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/contrib/build/ttc:/workspace/scratch/90c1f6e122d1/Idric/libs/test/build/ttc:"
+make[3]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/libs/papers'
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build papers.ipkg
+ 1/33: Building Search.Tychonoff.PartI (Search/Tychonoff/PartI.idr)
+ 2/33: Building Search.Negation (Search/Negation.idr)
+ 3/33: Building Search.HDecidable (Search/HDecidable.idr)
+ 4/33: Building Search.Generator (Search/Generator.idr)
+ 5/33: Building Search.Properties (Search/Properties.idr)
+ 6/33: Building Search.CTL (Search/CTL.idr)
+ 7/33: Building Search.GCL (Search/GCL.idr)
+ 8/33: Building Search.Auto (Search/Auto.idr)
+ 9/33: Building Language.TypeTheory (Language/TypeTheory.idr)
+10/33: Building Language.Tagless (Language/Tagless.idr)
+11/33: Building Language.IntrinsicTyping.SECD (Language/IntrinsicTyping/SECD.idr)
+12/33: Building Language.IntrinsicTyping.STLCR (Language/IntrinsicTyping/STLCR.idr)
+13/33: Building Language.IntrinsicTyping.Krivine (Language/IntrinsicTyping/Krivine.idr)
+Warning: compiling hole {P:env:8280}
+14/33: Building Language.IntrinsicTyping.ABT (Language/IntrinsicTyping/ABT.idr)
+15/33: Building Language.IntrinsicScoping.Variables (Language/IntrinsicScoping/Variables.idr)
+16/33: Building Language.IntrinsicScoping.TypeTheory (Language/IntrinsicScoping/TypeTheory.idr)
+17/33: Building Data.W (Data/W.idr)
+18/33: Building Data.Tree.Perfect (Data/Tree/Perfect.idr)
+19/33: Building Data.Vect.Binary (Data/Vect/Binary.idr)
+20/33: Building Data.InductionRecursion.DybjerSetzer (Data/InductionRecursion/DybjerSetzer.idr)
+21/33: Building Data.Recursion.Free (Data/Recursion/Free.idr)
+22/33: Building Data.ProofDelay (Data/ProofDelay.idr)
+23/33: Building Data.INTEGER (Data/INTEGER.idr)
+24/33: Building Data.Linear.Inverse (Data/Linear/Inverse.idr)
+25/33: Building Data.Linear.Diff (Data/Linear/Diff.idr)
+26/33: Building Data.Linear.Communications (Data/Linear/Communications.idr)
+27/33: Building Data.Description.Regular (Data/Description/Regular.idr)
+28/33: Building Data.Description.Indexed (Data/Description/Indexed.idr)
+29/33: Building Data.Enumerate.Common (Data/Enumerate/Common.idr)
+30/33: Building Data.Enumerate.Indexed (Data/Enumerate/Indexed.idr)
+31/33: Building Data.Enumerate (Data/Enumerate.idr)
+32/33: Building Data.Container (Data/Container.idr)
+33/33: Building Control.DivideAndConquer (Control/DivideAndConquer.idr)
+make[3]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/libs/papers'
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+make[1]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'
+bootstrap stage 2 complete
+make: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'

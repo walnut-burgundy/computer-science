@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-08",
+  "source_repo": "fuego-ironworks/idric-arm-thumb",
+  "source_branch": "native-arm",
+  "source_revision": "0ccef59e21415585c265b79360164f7351baa1c5",
+  "idric_revision": "081b9cde0591154839fb5d80d76e5570e0436300",
+  "idric_version": "Idris 2, version 0.8.0-081b9cde0",
+  "idric_backend_bootstrap": "Chez 10.4.1; host GCC builds bootstrap support; not a maintained ARM stage",
+  "ndk_revision": "29.0.14206865",
+  "ndk_zip_sha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+  "qemu_version": "8.2.2 Ubuntu 1:8.2.2+ds-0ubuntu1.18",
+  "ick_assessed_revision": "15f1f842f5da25f4e5a66fbbb18d24b99a141a8f",
+  "ick_gap": "No accessible qualified ICK ARMv7 assembler/link/runtime artifact in this environment. Current main ARM codegen receipts do not qualify this execution path; runtime PR81 receipts are host evidence. NDK fallback follows existing native Makefile policy. No claim that ICK is incapable of these instructions.",
+  "host_model_final_runs": [
+    {
+      "mode": "correct",
+      "chunk_id": "9a08c5",
+      "wall_time_seconds": 0.035523529,
+      "exit_code": 0,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-side",
+      "chunk_id": "83be4d",
+      "wall_time_seconds": 0.044151271,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 0/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "no-restore",
+      "chunk_id": "9315e4",
+      "wall_time_seconds": 0.035781312,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 0/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-phase",
+      "chunk_id": "861e62",
+      "wall_time_seconds": 0.000026108,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 0/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-wrap",
+      "chunk_id": "c26371",
+      "wall_time_seconds": 0.004652847,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 0/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "zero",
+      "chunk_id": "5120b4",
+      "wall_time_seconds": 0.035666033,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 0/169\nearly truncation changes completed layer 2/2\n"
+    }
+  ],
+  "compile_probes": [
+    {
+      "probe": "NativeLayer",
+      "chunk_id": "f79443",
+      "wall_time_seconds": 0.645043332,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "probe": "WordResult",
+      "chunk_id": "052435",
+      "wall_time_seconds": 0.548669625,
+      "exit_code": 1,
+      "original_token_count": 30,
+      "output": "Error: arm-thumb rejected source ABI for `WordResult.word_add`: result must be RendererPrimitives.Float32, not Word32.\n"
+    },
+    {
+      "probe": "WordIndex",
+      "chunk_id": "001484",
+      "wall_time_seconds": 0.533374312,
+      "exit_code": 1,
+      "original_token_count": 31,
+      "output": "Error: arm-thumb rejected reachable program: Unsupported ANF value in the runtime-free numerical subset: %op +Int32(v1, v2)\n"
+    }
+  ],
+  "native_execution": {
+    "correct": {
+      "chunk_id": "ee6c8a",
+      "wall_time_seconds": 0.000022185,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "wrong_add": {
+      "chunk_id": "03f131",
+      "wall_time_seconds": 0.000024038,
+      "exit_code": 43,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "zero": {
+      "chunk_id": "adca73",
+      "wall_time_seconds": 0.000025052,
+      "exit_code": 43,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "native_cases": [
+    {
+      "operation": "sum_half",
+      "inputs": [
+        "1.5",
+        "-0.5",
+        "0.5"
+      ],
+      "expected_bits": "3f000000"
+    },
+    {
+      "operation": "difference_half",
+      "inputs": [
+        "1.5",
+        "-0.5",
+        "0.5"
+      ],
+      "expected_bits": "3f800000"
+    },
+    {
+      "operation": "sum_half",
+      "inputs": [
+        "-1.5",
+        "-0.5",
+        "0.5"
+      ],
+      "expected_bits": "bf800000"
+    }
+  ],
+  "scope": "Float32 exact representable boundary samples only; not arbitrary precision or paper-specific motif execution on ARM. Android API21 object compiled, Linux-user freestanding ELF executed. No Android runtime/device/performance evidence. Tool wall times are orchestration durations, not native benchmarks."
+}

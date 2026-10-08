@@ -1,0 +1,20 @@
+/workspace/scratch/90c1f6e122d1/Idric/build/exec/idris2 --build backend.ipkg
+1/6: Building RendererPrimitives (src/RendererPrimitives.idr)
+2/6: Building Backend.ARMThumb.IR (src/Backend/ARMThumb/IR.idr)
+3/6: Building Backend.ARMThumb.Lower (src/Backend/ARMThumb/Lower.idr)
+4/6: Building Backend.ARMThumb.Emit (src/Backend/ARMThumb/Emit.idr)
+5/6: Building Backend.ARMThumb.Codegen (src/Backend/ARMThumb/Codegen.idr)
+Warning: We are about to implicitly bind the following lowercase names.
+You may be unintentionally shadowing the associated global definitions:
+  value is shadowing Libraries.Data.Record.LabelledValue.value
+
+Backend.ARMThumb.Codegen:22:1--22:38
+ 18 |
+ 19 | -- The frontend can catch UserError without recording an error exit status.
+ 20 | -- A refused backend artifact must still fail the command.
+ 21 | private
+ 22 | reject_backend : String -> Core value
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+6/6: Building Backend.ARMThumb.Main (src/Backend/ARMThumb/Main.idr)
+Now compiling the executable: idric-arm-thumb

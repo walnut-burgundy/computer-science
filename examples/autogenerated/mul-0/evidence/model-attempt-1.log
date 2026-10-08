@@ -1,0 +1,22 @@
+Error: While processing right hand side of neighbor. Can't find an implementation for Integral Nat.
+
+Model:54:26--54:45
+ 50 | overlap : List Nat -> List Nat -> Nat
+ 51 | overlap s t = length (filter (\i => elem i t) s)
+ 52 | 
+ 53 | neighbor : List Nat -> List Nat -> Bool
+ 54 | neighbor s t = s /= t && mod (overlap s t) 2 == 0
+                               ^^^^^^^^^^^^^^^^^^^
+
+Error: While processing right hand side of ringCase. Can't find an implementation for Integral Nat.
+
+Model:186:58--186:69
+ 182 |       expanded = decode 7 4096 (pack 4096 left * pack 4096 right)
+ 183 |       candidate = map (\j => if mode == "wrong-wrap" then at j expanded + at (j+4) expanded
+ 184 |                               else at j expanded - at (j+4) expanded) [0..3]
+ 185 |       direct = map (\k => sum [ (if i+j >= 4 then -1 else 1) * at i left * at j right
+ 186 |                              | i <- [0..3], j <- [0..3], mod (i+j) 4 == k]) [0..3]
+                                                                ^^^^^^^^^^^
+
+Warning: compiling hole Model.neighbor
+Warning: compiling hole Model.ringCase

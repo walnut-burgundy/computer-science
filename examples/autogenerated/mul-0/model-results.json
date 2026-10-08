@@ -1,0 +1,57 @@
+{
+  "compiler_checkout": "081b9cde0591154839fb5d80d76e5570e0436300",
+  "backend": "Chez, bootstrap-generated host compiler; exact final compiler rerun recorded separately",
+  "command": "env PATH=<Idric>/.tools/bin:/usr/local/bin:/usr/bin:/bin build/exec/mul-0-model MODE",
+  "input_definition": "Model.idr main: fixed enumerations, no randomness",
+  "scope": "reduced exact algebra, not full framed recurrence or native execution",
+  "runs": [
+    {
+      "mode": "correct",
+      "chunk_id": "5a92d6",
+      "wall_time_seconds": 0.100861784,
+      "exit_code": 0,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-side",
+      "chunk_id": "ab615f",
+      "wall_time_seconds": 0.000019724,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 0/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "no-restore",
+      "chunk_id": "161ad7",
+      "wall_time_seconds": 0.000027338,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 0/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-phase",
+      "chunk_id": "c98a2c",
+      "wall_time_seconds": 0.100876211,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 0/81\nsigned packing and negacyclic recovery 169/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "wrong-wrap",
+      "chunk_id": "79509a",
+      "wall_time_seconds": 0.012300851,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 0/169\nearly truncation changes completed layer 2/2\n"
+    },
+    {
+      "mode": "zero",
+      "chunk_id": "09cfdf",
+      "wall_time_seconds": 0.01116767,
+      "exit_code": 1,
+      "original_token_count": 54,
+      "output": "Gaussian scalar invocation h=6, nonzero scratch 32/32\neight address shifts, signed addresses 578/578\nexact H0=b S C S 81/81\nsigned packing and negacyclic recovery 0/169\nearly truncation changes completed layer 2/2\n"
+    }
+  ]
+}

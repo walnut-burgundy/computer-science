@@ -1,0 +1,37 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0100 9360k  100 9360k    0     0   511k      0  0:00:18  0:00:18 --:--:-- 2303k
+make: Entering directory '/workspace/scratch/90c1f6e122d1/Idric'
+make[1]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support'
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support/c'
+cc -Wall -fPIC -O2   -c -o getline.o getline.c
+cc -Wall -fPIC -O2   -c -o idris_directory.o idris_directory.c
+cc -Wall -fPIC -O2   -c -o idris_file.o idris_file.c
+cc -Wall -fPIC -O2   -c -o idris_memory.o idris_memory.c
+cc -Wall -fPIC -O2   -c -o idris_net.o idris_net.c
+cc -Wall -fPIC -O2   -c -o idris_signal.o idris_signal.c
+cc -Wall -fPIC -O2   -c -o idris_support.o idris_support.c
+cc -Wall -fPIC -O2   -c -o idris_system.o idris_system.c
+cc -Wall -fPIC -O2   -c -o idris_term.o idris_term.c
+cc -Wall -fPIC -O2   -c -o idris_util.o idris_util.c
+ar rc libidris2_support.a getline.o idris_directory.o idris_file.o idris_memory.o idris_net.o idris_signal.o idris_support.o idris_system.o idris_term.o idris_util.o
+ranlib libidris2_support.a
+cc -Wall -fPIC -O2  -shared -o libidris2_support.so getline.o idris_directory.o idris_file.o idris_memory.o idris_net.o idris_signal.o idris_support.o idris_system.o idris_term.o idris_util.o 
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support/c'
+make[2]: Entering directory '/workspace/scratch/90c1f6e122d1/Idric/support/refc'
+cc -Wall -fPIC -O2   -c -o buffer.o buffer.c
+cc -Wall -fPIC -O2   -c -o casts.o casts.c
+In file included from cBackend.h:8,
+                 from casts.h:3,
+                 from casts.c:1:
+_datatypes.h:3:10: fatal error: gmp.h: No such file or directory
+    3 | #include <gmp.h>
+      |          ^~~~~~~
+compilation terminated.
+make[2]: *** [<builtin>: casts.o] Error 1
+make[2]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support/refc'
+make[1]: *** [Makefile:11: build-refc] Error 2
+make[1]: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric/support'
+make: *** [Makefile:167: /workspace/scratch/90c1f6e122d1/Idric/support/c/libidris2_support.so] Error 2
+make: Leaving directory '/workspace/scratch/90c1f6e122d1/Idric'

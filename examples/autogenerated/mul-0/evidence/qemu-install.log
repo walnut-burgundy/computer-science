@@ -1,0 +1,28 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  qemu-user-binfmt
+The following NEW packages will be installed:
+  qemu-user qemu-user-binfmt
+E: setgroups 65534 failed - setgroups (1: Operation not permitted)
+E: setegid 65534 failed - setegid (22: Invalid argument)
+E: seteuid 42 failed - seteuid (22: Invalid argument)
+E: setgroups 0 failed - setgroups (1: Operation not permitted)
+0 upgraded, 2 newly installed, 0 to remove and 88 not upgraded.
+Need to get 9638 kB of archives.
+After this operation, 65.6 MB of additional disk space will be used.
+Err:1 https://snapshot.ubuntu.com/ubuntu/20260828T000000Z noble-updates/universe amd64 qemu-user amd64 1:8.2.2+ds-0ubuntu1.18
+  Could not open file /var/cache/apt/archives/partial/qemu-user_1%3a8.2.2+ds-0ubuntu1.18_amd64.deb - open (13: Permission denied) [IP: 127.0.0.1 39167]
+Err:2 https://snapshot.ubuntu.com/ubuntu/20260828T000000Z noble-updates/universe amd64 qemu-user-binfmt amd64 1:8.2.2+ds-0ubuntu1.18
+  Could not open file /var/cache/apt/archives/partial/qemu-user-binfmt_1%3a8.2.2+ds-0ubuntu1.18_amd64.deb - open (13: Permission denied) [IP: 127.0.0.1 39167]
+W: chown to _apt:root of directory /var/cache/apt/archives/partial failed - SetupAPTPartialDirectory (22: Invalid argument)
+W: chmod 0700 of directory /var/cache/apt/archives/partial failed - SetupAPTPartialDirectory (1: Operation not permitted)
+W: chown to _apt:root of directory /var/lib/apt/lists/auxfiles failed - SetupAPTPartialDirectory (22: Invalid argument)
+E: setgroups 65534 failed - setgroups (1: Operation not permitted)
+E: setegid 65534 failed - setegid (22: Invalid argument)
+E: seteuid 42 failed - seteuid (22: Invalid argument)
+W: Download is performed unsandboxed as root as file '/var/cache/apt/archives/partial/qemu-user_1%3a8.2.2+ds-0ubuntu1.18_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+E: setgroups 0 failed - setgroups (1: Operation not permitted)
+W: Problem unlinking the file /var/cache/apt/archives/partial/qemu-user_1%3a8.2.2+ds-0ubuntu1.18_amd64.deb - PrepareFiles (13: Permission denied)
+W: Problem unlinking the file /var/cache/apt/archives/partial/qemu-user-binfmt_1%3a8.2.2+ds-0ubuntu1.18_amd64.deb - PrepareFiles (13: Permission denied)

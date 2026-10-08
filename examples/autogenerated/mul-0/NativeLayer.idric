@@ -1,0 +1,16 @@
+module NativeLayer
+
+import RendererPrimitives
+
+-- Boundary probe only: these particular Float32 inputs are exactly representable.
+-- This is not the arbitrary-precision dyadic representation required by the paper.
+%export "arm-thumb:sum_half"
+sum_half : Float32 -> Float32 -> Float32 -> Float32
+sum_half u v half = float32_multiply (float32_add u v) half
+
+%export "arm-thumb:difference_half"
+difference_half : Float32 -> Float32 -> Float32 -> Float32
+difference_half u v half = float32_multiply (float32_subtract u v) half
+
+main : IO ()
+main = pure ()

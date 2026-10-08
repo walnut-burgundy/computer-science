@@ -1,0 +1,84 @@
+
+build/exec/mul-layer-selftest:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+000200b4 <difference_half>:
+   200b4: f1ad 0d18    	sub.w	sp, sp, #0x18
+   200b8: 9000         	str	r0, [sp]
+   200ba: 9101         	str	r1, [sp, #0x4]
+   200bc: 9202         	str	r2, [sp, #0x8]
+   200be: ed9d 0a00    	vldr	s0, [sp]
+   200c2: eddd 0a01    	vldr	s1, [sp, #4]
+   200c6: ee30 0a60    	vsub.f32	s0, s0, s1
+   200ca: ed8d 0a03    	vstr	s0, [sp, #12]
+   200ce: ed9d 0a03    	vldr	s0, [sp, #12]
+   200d2: eddd 0a02    	vldr	s1, [sp, #8]
+   200d6: ee20 0a20    	vmul.f32	s0, s0, s1
+   200da: ed8d 0a04    	vstr	s0, [sp, #16]
+   200de: 9804         	ldr	r0, [sp, #0x10]
+   200e0: f10d 0d18    	add.w	sp, sp, #0x18
+   200e4: 4770         	bx	lr
+   200e6: bf00         	nop
+
+000200e8 <sum_half>:
+   200e8: f1ad 0d18    	sub.w	sp, sp, #0x18
+   200ec: 9000         	str	r0, [sp]
+   200ee: 9101         	str	r1, [sp, #0x4]
+   200f0: 9202         	str	r2, [sp, #0x8]
+   200f2: ed9d 0a00    	vldr	s0, [sp]
+   200f6: eddd 0a01    	vldr	s1, [sp, #4]
+   200fa: ee30 0a20    	vadd.f32	s0, s0, s1
+   200fe: ed8d 0a03    	vstr	s0, [sp, #12]
+   20102: ed9d 0a03    	vldr	s0, [sp, #12]
+   20106: eddd 0a02    	vldr	s1, [sp, #8]
+   2010a: ee20 0a20    	vmul.f32	s0, s0, s1
+   2010e: ed8d 0a04    	vstr	s0, [sp, #16]
+   20112: 9804         	ldr	r0, [sp, #0x10]
+   20114: f10d 0d18    	add.w	sp, sp, #0x18
+   20118: 4770         	bx	lr
+   2011a: d4d4         	bmi	0x200c6 <difference_half+0x12> @ imm = #-0x58
+
+0002011c <_start>:
+   2011c: f240 0000    	movw	r0, #0x0
+   20120: f6c3 70c0    	movt	r0, #0x3fc0
+   20124: f240 0100    	movw	r1, #0x0
+   20128: f6cb 7100    	movt	r1, #0xbf00
+   2012c: f240 0200    	movw	r2, #0x0
+   20130: f6c3 7200    	movt	r2, #0x3f00
+   20134: f7ff ffd8    	bl	0x200e8 <sum_half>      @ imm = #-0x50
+   20138: f240 0300    	movw	r3, #0x0
+   2013c: f6c3 7300    	movt	r3, #0x3f00
+   20140: 4298         	cmp	r0, r3
+   20142: d129         	bne	0x20198 <failure>       @ imm = #0x52
+   20144: f240 0000    	movw	r0, #0x0
+   20148: f6c3 70c0    	movt	r0, #0x3fc0
+   2014c: f240 0100    	movw	r1, #0x0
+   20150: f6cb 7100    	movt	r1, #0xbf00
+   20154: f240 0200    	movw	r2, #0x0
+   20158: f6c3 7200    	movt	r2, #0x3f00
+   2015c: f7ff ffaa    	bl	0x200b4 <difference_half> @ imm = #-0xac
+   20160: f240 0300    	movw	r3, #0x0
+   20164: f6c3 7380    	movt	r3, #0x3f80
+   20168: 4298         	cmp	r0, r3
+   2016a: d115         	bne	0x20198 <failure>       @ imm = #0x2a
+   2016c: f240 0000    	movw	r0, #0x0
+   20170: f6cb 70c0    	movt	r0, #0xbfc0
+   20174: f240 0100    	movw	r1, #0x0
+   20178: f6cb 7100    	movt	r1, #0xbf00
+   2017c: f240 0200    	movw	r2, #0x0
+   20180: f6c3 7200    	movt	r2, #0x3f00
+   20184: f7ff ffb0    	bl	0x200e8 <sum_half>      @ imm = #-0xa0
+   20188: f240 0300    	movw	r3, #0x0
+   2018c: f6cb 7380    	movt	r3, #0xbf80
+   20190: 4298         	cmp	r0, r3
+   20192: d101         	bne	0x20198 <failure>       @ imm = #0x2
+   20194: 2000         	movs	r0, #0x0
+   20196: e000         	b	0x2019a <finish>        @ imm = #0x0
+
+00020198 <failure>:
+   20198: 202b         	movs	r0, #0x2b
+
+0002019a <finish>:
+   2019a: 2701         	movs	r7, #0x1
+   2019c: df00         	svc	#0x0

@@ -1,0 +1,10 @@
+module WordIndex
+
+import RendererPrimitives
+
+%export "arm-thumb:indexed_next"
+indexed_next : Float32Buffer -> Int32 -> Float32
+indexed_next buffer position = float32_buffer_load buffer (position + 1)
+
+main : IO ()
+main = pure ()

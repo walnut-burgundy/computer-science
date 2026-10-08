@@ -1,0 +1,8 @@
+module WordResult
+
+%export "arm-thumb:word_add"
+word_add : Int32 -> Int32 -> Int32
+word_add left right = left + right
+
+main : IO ()
+main = pure ()
