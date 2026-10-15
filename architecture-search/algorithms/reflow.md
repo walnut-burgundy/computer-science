@@ -1,6 +1,6 @@
 # Reflow: a semantic operation with a portfolio of realizations
 
-**Status, 2026-10-15:** Sources and smoke cases are on draft [IB PR #157, *Implement two selectable Idriç reflow strategies*](https://github.com/isomorphisms/ib/pull/157). That PR has been expanded beyond its initial two strategies. The pinned Idriç compiler/runtime and physical Android-reader acceptance are **NOT_VERIFIED** for its latest head; source presence is not an execution claim.
+**Status, 2026-10-15:** Executable Idriç source and passing host smoke are on draft [IB PR #157, *Implement selectable reflow algorithms, streaming and incremental reuse*](https://github.com/isomorphisms/ib/pull/157). That PR has been expanded beyond its initial two strategies. The pinned Idriç compiler/runtime **PASS** at IB head `9852acb3f8c1598fbc0393a9a223d3b9edef495a` in [run 38672282327](https://github.com/isomorphisms/ib/actions/runs/38672282327), including the eight-way reflow smoke and streaming/incremental tests. Native Android reader reflow and font/pixel measurement acceptance remain **NOT_RUN**.
 
 The top-level verb remains **`reflow`**. Adverbs describe manner; the selector chooses and invokes one method. This is a concrete companion to [adverbs issue #71](https://github.com/walnut-burgundy/computer-science/issues/71).
 
