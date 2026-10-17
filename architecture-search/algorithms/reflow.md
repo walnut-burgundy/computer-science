@@ -62,6 +62,16 @@ evenly:
 
 These are different correct layouts with the same source segments. In [`ReflowSmoke.idric`](https://github.com/isomorphisms/ib/blob/feature/reflow-two-ways/src/ReflowSmoke.idric), a second seven-segment example discriminates squared, cubic, final-line-free and minimax objectives. Streaming checks partial-word chunk boundaries and early emission. Incremental checks cache hits and edit/width/metric-key invalidation. No device performance number is inferred from those functional cases.
 
+## Source-bound follow-on
+
+[Source-bound line breaks](source-bound-reflow.md) add a **separate typed
+representation** with immutable decoded source, explicit code-point break
+offsets, mandatory cuts, discretionary soft hyphens and source-backed line
+spans. Greedy and several objective-based optimizers are implemented on that
+representation in [IB PR #159](https://github.com/isomorphisms/ib/pull/159).
+This is deliberately a limited Unicode pilot: full UAX #14/#29, native
+glyph shaping and physical-device acceptance are not claimed.
+
 ## Other known techniques: preserve as research, not invented implementations
 
 | Technique | How it differs | Present availability |
