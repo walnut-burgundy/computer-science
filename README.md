@@ -43,3 +43,7 @@ The reconciled design rationale is in [`notes/architectural-compilation.md`](not
 ## Integer-multiplication research source
 
 [OpenAI's 2026 *Integer multiplication below n log n* preprint](integer-multiplication/openai-2026/README.md) is archived with its original PDF and license. The accompanying note separates the stated fixed-tape asymptotic theorem from paper-to-code verification and practical backend measurements; no implementation or proof verification is claimed here.
+
+## Where lowering choices happen
+
+[The lowering decision atlas](notes/lowering-decision-atlas.md) maps source semantics through architectural choices, Idriç, direct DEX, ART, native execution and English Major C. Its purpose is to identify the **exact decision owner, source edit or control, alternatives, and observable evidence**, not to claim that a planner or optimizer has been implemented.
