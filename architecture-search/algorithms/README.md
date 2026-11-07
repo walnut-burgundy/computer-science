@@ -11,3 +11,7 @@ A record should preserve:
 - reference cases or tests that allow a selected implementation to be checked.
 
 Performance claims belong with an explicit target and workload. They should not be copied into a target-independent algorithm record as universal facts.
+
+## Executable example
+
+- [Reflow](reflow.md): two Idriç implementations behind one `reflow` verb, selected by adverb, with explicitly recorded tradeoffs and unmeasured target choices.
