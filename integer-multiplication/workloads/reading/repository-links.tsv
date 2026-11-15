@@ -1,0 +1,6 @@
+repository	ref	path	role
+walnut-burgundy/computer-science	e41080faf44c5a856c4e3aa6467b82dcb3c9cfeb	books/README.md	SHARED_INDEX_OWNER
+walnut-burgundy/fulton	5ae8ae3a5ca7e827c8208daa42839ae4e8233e65	sources/fulton-algebraic-curves/README.md	FULTON_SOURCE_OWNER
+isomorphismes/seifert	dfbffe3670c2ca2e9e067d23893fc4a7b78ad6ce	books/arithmetic-examples-for-multiplication.md	SEIFERT_SOURCE_OWNER
+isomorphisms/ick	96c60f216a59b2a120109c2dc872da62a1c2d34d	benchmarks/bigmul/jobs/SUN-BENCHMARK-JOBS-20261008.md	CAMPAIGN_SPECIFICATION
+isomorphisms/ithon	74ab6d6044b07b76a910978437a34a6b5ac6acda	ithon	CHECKED_HOST_FRONTEND

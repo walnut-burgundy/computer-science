@@ -1,0 +1,13 @@
+module ReadingState
+
+import Data.Text
+
+-- A domain slice awaiting a verified Idriç compiler in this consumer.
+data ReadingEvidence = Catalogued Text | PassageRead Text
+
+can_supply_passage : ReadingEvidence → Bool
+can_supply_passage (Catalogued _) = False
+can_supply_passage (PassageRead locator) = not (locator ≟ "")
+
+main : IO ()
+main = printLn (can_supply_passage (Catalogued "publisher record"))

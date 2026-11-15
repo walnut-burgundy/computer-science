@@ -1,0 +1,28 @@
+field	value
+observed_on	2026-11-15
+repository	walnut-burgundy/computer-science
+branch	sun/mc01-reading-provenance
+base_branch	how-long+how-wide
+base_commit	e41080faf44c5a856c4e3aa6467b82dcb3c9cfeb
+checkout	/workspace/scratch/c27e98e48eb3/computer-science
+execution_host	Linux 6.18.60 x86_64 disposable build host
+launch_directory	/tmp
+frontend_repository	isomorphisms/ithon
+frontend_commit	74ab6d6044b07b76a910978437a34a6b5ac6acda
+frontend_entrypoint	/workspace/scratch/c27e98e48eb3/ithon/ithon
+frontend_qualification	PASS 46 tests; checked host-control frontend only
+command	env ITHON_CHECK_RECEIPT=/workspace/scratch/c27e98e48eb3/mc01-frontend-checks.jsonl /workspace/scratch/c27e98e48eb3/ithon/ithon /workspace/scratch/c27e98e48eb3/computer-science/integer-multiplication/workloads/reading/check_mc01.pi --self-test /workspace/scratch/c27e98e48eb3/ithon/ithon
+exit_status	0
+audit	PASS 9 source/edition identities; 9 observations; 6 consumer maps
+positive_cli	PASS actual checked subprocess
+negative_controls	PASS 15 actual checked subprocess refusals with expected diagnostics
+output	validation-output.tsv
+evidence_boundary	Recorded-source consistency and exact example arithmetic; no whole-book reading or generated benchmark corpus
+idric	NOT_RUN no verified idric executable in PATH
+MC-02	SOURCE_TRAIL_READY finite example only; generator not implemented
+MC-03	BLOCKED_ACCESS source body/model/example not inspected
+MC-04	BLOCKED_ACCESS author PDF retrieval failed
+MC-05	BLOCKED_ACCESS source chapter/example not inspected
+MC-06	BLOCKED_ACCESS source definition/example not inspected
+plane_algebraic_curves	UNRESOLVED original intended book identity
+publication	NOT_RUN local candidate; publication is a separate stage
