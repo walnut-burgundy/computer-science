@@ -27,7 +27,6 @@ jobs:
     timeout-minutes: 10
     env:
       ITHON_PYTHON: /usr/bin/python3
-      ITHON_CHECK_RECEIPT: ${{ runner.temp }}/mc01-frontend-checks.jsonl
     steps:
       - name: Check out the exact source head
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -47,12 +46,16 @@ jobs:
         shell: sh
         run: git -C "${{ github.workspace }}" show --no-patch --format=fuller HEAD
       - name: Qualify the checked host frontend
+        env:
+          ITHON_CHECK_RECEIPT: ${{ runner.temp }}/mc01-frontend-checks.jsonl
         shell: sh
         run: >-
           "${{ github.workspace }}/_mc01-tools/ithon/ithon"
           "${{ github.workspace }}/_mc01-tools/ithon/tests/qualify-host-control.pi"
           "${{ runner.temp }}/mc01-host-qualification.json"
       - name: Audit source trails and exercise fifteen refusal controls
+        env:
+          ITHON_CHECK_RECEIPT: ${{ runner.temp }}/mc01-frontend-checks.jsonl
         shell: sh
         working-directory: ${{ runner.temp }}
         run: >-
