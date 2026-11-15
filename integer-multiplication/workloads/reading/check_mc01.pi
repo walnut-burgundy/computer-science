@@ -1,0 +1,259 @@
+"""Audit the MC-01 source trails; catalogue consistency is not book reading."""
+import sys
+import subprocess
+import tempfile
+import hashlib
+from pathlib import Path
+from builtins import list, dict, ValueError, OSError, UnicodeError
+
+SCHEMAS ∈ dict[str, list[str]] ← {
+    "bibliography.tsv": ["source_id", "title", "creators", "creator_role", "edition", "year", "identity", "access", "reading", "redistribution", "url", "evidence_id"],
+    "observations.tsv": ["evidence_id", "source_id", "kind", "observed_on", "locator", "observation", "finite_object"],
+    "source-map.tsv": ["map_id", "consumer", "source_id", "evidence_id", "passage_status", "locator", "finite_object", "encoding", "state", "blocker"],
+    "repository-links.tsv": ["repository", "ref", "path", "role"],
+}
+SOURCE_IDS ∈ list[str] ← ["silverman-friendly-4-2012", "silverman-friendly-classic-4", "ash-gross-elliptic-tales-2012", "fulton-algebraic-curves-2008", "silverman-arithmetic-elliptic-2", "hindry-silverman-diophantine-2000", "cornell-silverman-arithmetic-geometry-1986", "morishita-knots-primes-2", "plane-curves-unresolved"]
+CONSUMERS ∈ list[str] ← ["MC-02", "MC-03", "MC-04", "MC-05", "MC-06"]
+ROLE_REPOSITORIES ∈ dict[str, str] ← {"SHARED_INDEX_OWNER": "walnut-burgundy/computer-science", "FULTON_SOURCE_OWNER": "walnut-burgundy/fulton", "SEIFERT_SOURCE_OWNER": "isomorphismes/seifert", "CAMPAIGN_SPECIFICATION": "isomorphisms/ick", "CHECKED_HOST_FRONTEND": "isomorphisms/ithon"}
+
+def require(condition ∈ bool, diagnostic ∈ str) → None:
+    if not condition:
+        raise ValueError(diagnostic)
+
+def has_key(mapping ∈ object, key ∈ str) → bool:
+    keys ∈ list[str] ← list(mapping)
+    return key in keys
+
+def read_table(directory ∈ str, filename ∈ str) → list[dict[str, str]]:
+    path ∈ object ← Path(directory, filename)
+    require(path.is_file(), "missing required table: " + filename)
+    raw ∈ bytes ← path.read_bytes()
+    text ∈ str ← raw.decode("utf-8", errors="strict")
+    require(text.endswith("\n"), "missing final newline: " + filename)
+    lines ∈ list[str] ← text.splitlines()
+    fields ∈ list[str] ← SCHEMAS[filename]
+    require(len(lines) > 1, "invalid header: " + filename)
+    header ∈ list[str] ← lines[0].split("\t")
+    require(header == fields, "invalid header: " + filename)
+    rows ∈ list[dict[str, str]] ← []
+    for line in lines[1:]:
+        cells ∈ list[str] ← line.split("\t")
+        require(len(cells) == len(fields), "invalid row width: " + filename)
+        row ∈ dict[str, str] ← {}
+        for index in range(len(fields)):
+            stripped ∈ str ← cells[index].strip()
+            require(cells[index] != "" and cells[index] == stripped, "empty or padded value: " + filename)
+            row[fields[index]] ← cells[index]
+        rows.append(row)
+    return rows
+
+def read_tables(directory ∈ str) → dict[str, list[dict[str, str]]]:
+    tables ∈ dict[str, list[dict[str, str]]] ← {}
+    for filename in SCHEMAS:
+        tables[filename] ← read_table(directory, filename)
+    return tables
+
+def unique_index(rows ∈ list[dict[str, str]], field ∈ str) → dict[str, dict[str, str]]:
+    index ∈ dict[str, dict[str, str]] ← {}
+    for row in rows:
+        identity ∈ str ← row[field]
+        require(not has_key(index, identity), "duplicate " + field + ": " + identity)
+        index[identity] ← row
+    return index
+
+def contains_text(text ∈ str, fragment ∈ str) → bool:
+    offset ∈ int ← text.find(fragment)
+    return offset >= 0
+
+def secure_absolute_link_syntax(value ∈ str) → bool:
+    return value.startswith("https://") and not contains_text(value, " ") and not contains_text(value, "@") and len(value) > 12
+
+def audit(tables ∈ dict[str, list[dict[str, str]]]) → None:
+    sources ∈ dict[str, dict[str, str]] ← unique_index(tables["bibliography.tsv"], "source_id")
+    observations ∈ dict[str, dict[str, str]] ← unique_index(tables["observations.tsv"], "evidence_id")
+    maps ∈ dict[str, dict[str, str]] ← unique_index(tables["source-map.tsv"], "map_id")
+    require(len(sources) == len(SOURCE_IDS), "required bibliography identities changed")
+    for identity in SOURCE_IDS:
+        require(has_key(sources, identity), "required bibliography identities changed")
+    for source_id in sources:
+        source ∈ dict[str, str] ← sources[source_id]
+        evidence_id ∈ str ← source["evidence_id"]
+        require(has_key(observations, evidence_id), "missing bibliography observation")
+        require(observations[evidence_id]["source_id"] == source_id, "bibliography observation belongs to another source")
+        require(source["redistribution"] == "LINK_ONLY_NO_MIRROR_PERMISSION", "mirroring permission is not established")
+        if source["identity"] == "UNRESOLVED":
+            require(source_id == "plane-curves-unresolved", "unexpected unresolved identity")
+            require(source["creators"] == "UNKNOWN" and source["edition"] == "UNKNOWN" and source["year"] == "UNKNOWN" and source["url"] == "UNRESOLVED" and source["access"] == "UNRESOLVED" and source["reading"] == "NOT_READ", "unresolved title was silently identified")
+        else:
+            require(source["identity"] == "RESOLVED", "invalid identity status")
+            require(source["creators"] != "UNKNOWN" and source["creator_role"] in ["author", "authors", "editors"], "missing creator identity")
+            require(source["year"].isdigit() and len(source["year"]) == 4 and source["edition"] != "UNKNOWN", "missing edition identity")
+            require(secure_absolute_link_syntax(source["url"]), "invalid canonical source URL")
+            require(source["reading"] in ["METADATA_ONLY", "PASSAGE_READ"], "catalogue cannot claim full-book reading")
+            require(source["access"] in ["AUTHOR_EXCERPTS", "AUTHOR_URL_UNAVAILABLE", "PUBLISHER_METADATA", "PUBLISHER_TOC"], "invalid access status")
+            if source["reading"] == "PASSAGE_READ":
+                require(observations[evidence_id]["kind"] == "AUTHOR_PASSAGE", "reading claim has no inspected passage")
+    require(sources["silverman-friendly-4-2012"]["year"] == "2012" and sources["silverman-friendly-classic-4"]["year"] == "2017", "original and Classic edition conflated")
+    require(sources["cornell-silverman-arithmetic-geometry-1986"]["creator_role"] == "editors", "editors relabelled as authors")
+    for evidence_id in observations:
+        observation ∈ dict[str, str] ← observations[evidence_id]
+        require(has_key(sources, observation["source_id"]), "observation has unknown source")
+        require(secure_absolute_link_syntax(observation["locator"]), "invalid observation locator")
+        require(observation["observed_on"] == "2026-11-15", "observation date changed without a new audit")
+        require(len(observation["observation"]) >= 40, "empty observation account")
+    consumers ∈ list[str] ← []
+    ready_count ∈ int ← 0
+    for map_id in maps:
+        trail ∈ dict[str, str] ← maps[map_id]
+        require(trail["consumer"] in CONSUMERS, "unknown consumer")
+        consumers.append(trail["consumer"])
+        require(has_key(sources, trail["source_id"]) and has_key(observations, trail["evidence_id"]), "source trail has dangling identity")
+        source ∈ dict[str, str] ← sources[trail["source_id"]]
+        observation ∈ dict[str, str] ← observations[trail["evidence_id"]]
+        require(observation["source_id"] == trail["source_id"], "trail observation belongs to another source")
+        if trail["state"] == "SOURCE_TRAIL_READY":
+            ready_count ← ready_count + 1
+            require(source["reading"] == "PASSAGE_READ" and trail["passage_status"] == "PASSAGE_READ" and observation["kind"] == "AUTHOR_PASSAGE", "ready trail lacks inspected passage")
+            require(trail["locator"] != "NONE" and trail["blocker"] == "NONE", "ready trail has no locator or is blocked")
+            require(trail["encoding"] == "UNSIGNED_INTEGER_PAIR", "unsupported finite-object encoding")
+            values ∈ list[str] ← trail["finite_object"].split(",")
+            require(len(values) == 3, "invalid integer pair")
+            for value in values:
+                require(value.isdigit(), "invalid integer pair")
+            left ∈ int ← int(values[0])
+            right ∈ int ← int(values[1])
+            product ∈ int ← int(values[2])
+            require(left > 0 and right > 0 and left * right == product, "source integer product mismatch")
+            require(trail["finite_object"] == observation["finite_object"], "finite object not present in inspected observation")
+        else:
+            require(trail["state"] == "BLOCKED_ACCESS", "invalid trail state")
+            require(trail["passage_status"] in ["TOC_ONLY", "NOT_READ"] and trail["finite_object"] == "NONE" and trail["encoding"] == "NONE", "unread source fabricated a finite object")
+            require(len(trail["blocker"]) >= 40 and trail["blocker"] != "NONE", "missing reading/access blocker")
+    for consumer in CONSUMERS:
+        require(consumer in consumers, "required consumer omitted")
+    require(ready_count >= 1, "no usable finite-object source trail")
+    links ∈ dict[str, dict[str, str]] ← unique_index(tables["repository-links.tsv"], "role")
+    require(len(links) == len(ROLE_REPOSITORIES), "required repository owner omitted")
+    for role in ROLE_REPOSITORIES:
+        require(has_key(links, role), "required repository owner omitted")
+    for role in links:
+        link ∈ dict[str, str] ← links[role]
+        require(link["repository"] == ROLE_REPOSITORIES[role], "repository ownership changed")
+        revision ∈ str ← link["ref"]
+        require(len(revision) == 40, "floating repository dependency")
+        for position in range(len(revision)):
+            character ∈ str ← revision[position]
+            require(contains_text("0123456789abcdef", character), "floating repository dependency")
+        segments ∈ list[str] ← link["path"].split("/")
+        require(not link["path"].startswith("/") and not (".." in segments), "unsafe repository path")
+
+def copy_tables(tables ∈ dict[str, list[dict[str, str]]]) → dict[str, list[dict[str, str]]]:
+    result ∈ dict[str, list[dict[str, str]]] ← {}
+    for filename in tables:
+        rows ∈ list[dict[str, str]] ← []
+        for row in tables[filename]:
+            copied ∈ dict[str, str] ← dict(row)
+            rows.append(copied)
+        result[filename] ← rows
+    return result
+
+def write_tables(directory ∈ str, tables ∈ dict[str, list[dict[str, str]]]) → None:
+    for filename in SCHEMAS:
+        fields ∈ list[str] ← SCHEMAS[filename]
+        lines ∈ list[str] ← ["\t".join(fields)]
+        for row in tables[filename]:
+            cells ∈ list[str] ← []
+            for field in fields:
+                cells.append(row[field])
+            lines.append("\t".join(cells))
+        joined ∈ str ← "\n".join(lines)
+        Path(directory, filename).write_text(joined + "\n", encoding="utf-8")
+
+def run_child(frontend ∈ str, directory ∈ str) → object:
+    script ∈ str ← str(Path(__file__).resolve())
+    return subprocess.run([frontend, script, "--audit-dir", directory], capture_output=True, text=True, timeout=30)
+
+def self_test(frontend ∈ str, tables ∈ dict[str, list[dict[str, str]]]) → None:
+    require(Path(frontend).is_file(), "missing Ithon frontend")
+    mutants ∈ list[str] ← ["duplicate_source", "duplicate_observation", "dangling_source", "unread_ready", "invented_product", "invented_unit_product", "false_product", "mirror_permission", "chosen_unresolved_author", "dropped_consumer", "floating_pin", "edition_conflation", "editors_as_authors", "missing_table", "invalid_utf8"]
+    diagnostics ∈ list[str] ← ["duplicate source_id", "duplicate evidence_id", "source trail has dangling identity", "ready trail lacks inspected passage", "finite object not present", "finite object not present", "source integer product mismatch", "mirroring permission", "unresolved title was silently identified", "required consumer omitted", "floating repository dependency", "original and Classic edition conflated", "editors relabelled as authors", "missing required table", "utf-8"]
+    temporary ∈ object ← tempfile.TemporaryDirectory(prefix="mc01-")
+    directory ∈ str ← temporary.name
+    try:
+        write_tables(directory, tables)
+        positive ∈ object ← run_child(frontend, directory)
+        positive_status ∈ int ← positive.returncode
+        require(positive_status == 0, "positive child failed: " + str(positive.stderr))
+        print("PASS\tpositive_cli")
+        for index in range(len(mutants)):
+            changed ∈ dict[str, list[dict[str, str]]] ← copy_tables(tables)
+            name ∈ str ← mutants[index]
+            if name == "duplicate_source":
+                changed["bibliography.tsv"].append(changed["bibliography.tsv"][0])
+            elif name == "duplicate_observation":
+                changed["observations.tsv"].append(changed["observations.tsv"][0])
+            elif name == "dangling_source":
+                changed["source-map.tsv"][0]["source_id"] ← "invented-source"
+            elif name == "unread_ready":
+                changed["bibliography.tsv"][0]["reading"] ← "METADATA_ONLY"
+            elif name == "invented_product":
+                changed["source-map.tsv"][0]["finite_object"] ← "2,3,6"
+            elif name == "invented_unit_product":
+                changed["source-map.tsv"][0]["finite_object"] ← "1,1,1"
+            elif name == "false_product":
+                changed["source-map.tsv"][0]["finite_object"] ← "187963,163841,1"
+            elif name == "mirror_permission":
+                changed["bibliography.tsv"][0]["redistribution"] ← "MIRROR_ALLOWED"
+            elif name == "chosen_unresolved_author":
+                changed["bibliography.tsv"][8]["creators"] ← "William Fulton"
+            elif name == "dropped_consumer":
+                changed["source-map.tsv"].pop(1)
+            elif name == "floating_pin":
+                changed["repository-links.tsv"][0]["ref"] ← "main"
+            elif name == "edition_conflation":
+                changed["bibliography.tsv"][0]["year"] ← "2017"
+            elif name == "editors_as_authors":
+                changed["bibliography.tsv"][6]["creator_role"] ← "authors"
+            write_tables(directory, changed)
+            if name == "missing_table":
+                Path(directory, "source-map.tsv").unlink()
+            if name == "invalid_utf8":
+                Path(directory, "source-map.tsv").write_bytes(b"\xff\n")
+            refusal ∈ object ← run_child(frontend, directory)
+            status ∈ int ← refusal.returncode
+            stderr ∈ str ← refusal.stderr
+            require(status != 0 and contains_text(stderr, diagnostics[index]), "mutant escaped or failed for wrong reason: " + name + " stderr=" + stderr)
+            print("PASS\trefused\t" + name + "\t" + diagnostics[index])
+    finally:
+        temporary.cleanup()
+
+def main() → None:
+    argv ∈ list[str] ← sys.argv
+    arguments ∈ list[str] ← argv[1:]
+    directory ∈ str ← str(Path(__file__).resolve().parent)
+    frontend ∈ str ← ""
+    if len(arguments) == 2 and arguments[0] == "--audit-dir":
+        directory ← arguments[1]
+    elif len(arguments) == 2 and arguments[0] == "--self-test":
+        frontend ← arguments[1]
+    else:
+        require(len(arguments) == 0, "usage: check_mc01.pi [--audit-dir DIRECTORY | --self-test ABSOLUTE_ITHON]")
+    tables ∈ dict[str, list[dict[str, str]]] ← read_tables(directory)
+    audit(tables)
+    print("PASS\taudit\tsources=" + str(len(tables["bibliography.tsv"])) + "\tconsumer_maps=" + str(len(tables["source-map.tsv"])))
+    for filename in SCHEMAS:
+        digest ∈ str ← hashlib.sha256(Path(directory, filename).read_bytes()).hexdigest()
+        print("sha256\t" + filename + "\t" + digest)
+    checker_digest ∈ str ← hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    print("sha256\tcheck_mc01.pi\t" + checker_digest)
+    for trail in tables["source-map.tsv"]:
+        print(trail["consumer"] + "\t" + trail["state"] + "\t" + trail["map_id"])
+    if frontend != "":
+        self_test(frontend, tables)
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (ValueError, OSError, UnicodeError, subprocess.TimeoutExpired) as error:
+        print("FAIL\t" + str(error), file=sys.stderr)
+        sys.exit(1)

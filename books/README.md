@@ -2,6 +2,12 @@
 
 This is a **reading and provenance shelf**, not a mirror of copyrighted PDFs. The purpose is to find mathematically meaningful **families of integer operands** for [integer-multiplication research](../integer-multiplication/openai-2026/README.md) and the [ICK multiplier benchmark](https://github.com/dilapidated-shed/ick/tree/main/benchmarks/bigmul). Do not represent candidate examples as already extracted, verified, or benchmarked.
 
+The [MC-01 source audit](../integer-multiplication/workloads/reading/README.md)
+assigns stable bibliography and edition identities, records inspected access and
+reading evidence, and checks source-to-object trails for MC-02–06. It preserves
+*Plane Algebraic Curves* as an unidentified title. A checked source trail is not
+a generated benchmark corpus.
+
 ## Beginning with numbers and elliptic curves
 
 1. **Joseph H. Silverman, _A Friendly Introduction to Number Theory_, 4th ed. (Pearson).**

@@ -1,0 +1,28 @@
+PASS	audit	sources=9	consumer_maps=6
+sha256	bibliography.tsv	4694fc066c8f45531a1d6d96f12edd73dd2ce41bdeac2de002e1c26c437aa4fe
+sha256	observations.tsv	7ae78d265b5bfe2ec8a39e56607cb0ef418950ead5f39a88814e832ad49d723e
+sha256	source-map.tsv	0732f244a1799ec01431ce6e4e844912b112b57cc8dc524f221eb6074b227ed3
+sha256	repository-links.tsv	ef86327f5a9ec495f1bbb939809f4a9be82dfafced69477ab913df5cfdca4c6d
+sha256	check_mc01.pi	e3ca4e8d23819acbe9c42751f138e89f63e4f0383d0bb344a5b671922d8e6032
+MC-02	SOURCE_TRAIL_READY	friendly-rsa-modulus
+MC-03	BLOCKED_ACCESS	elliptic-integer-operations
+MC-04	BLOCKED_ACCESS	fulton-coefficient-arithmetic
+MC-05	BLOCKED_ACCESS	alexander-integer-encoding
+MC-06	BLOCKED_ACCESS	height-growth
+MC-06	BLOCKED_ACCESS	height-reference
+PASS	positive_cli
+PASS	refused	duplicate_source	duplicate source_id
+PASS	refused	duplicate_observation	duplicate evidence_id
+PASS	refused	dangling_source	source trail has dangling identity
+PASS	refused	unread_ready	ready trail lacks inspected passage
+PASS	refused	invented_product	finite object not present
+PASS	refused	invented_unit_product	finite object not present
+PASS	refused	false_product	source integer product mismatch
+PASS	refused	mirror_permission	mirroring permission
+PASS	refused	chosen_unresolved_author	unresolved title was silently identified
+PASS	refused	dropped_consumer	required consumer omitted
+PASS	refused	floating_pin	floating repository dependency
+PASS	refused	edition_conflation	original and Classic edition conflated
+PASS	refused	editors_as_authors	editors relabelled as authors
+PASS	refused	missing_table	missing required table
+PASS	refused	invalid_utf8	utf-8

@@ -2,17 +2,18 @@
 
 ComputerScience is an experimental architectural-planning project between semantic specification and concrete execution. It is intended to help choose and compose implementations using target facts, calculations, measurements, constraints, and programmer preferences, then leave behind an explicit plan that ordinary target-specific compilation can follow.
 
-This repository currently contains three related kinds of material:
+This repository currently contains these related kinds of material:
 
 - top-level subject and hardware references, presently including Android input, GPU, analytic-combinatorics, and electronics; CPU/ISA catalogs follow the same top-level reference convention when added;
 - the nested [`architecture-search/`](architecture-search/) area for the experimental planner, its evidence model, and end-to-end examples;
 - a deliberately small executable [`gpu-renderer-contract/`](gpu-renderer-contract/) lab which turns renderer/backend failure modes into dependency-free contract tests.
+- the executable [MC-01 reading-source audit](integer-multiplication/workloads/reading/README.md), which validates bibliography identities, source trails and explicit reading/access gaps for mathematical multiplication workloads.
 
 The top-level catalogs are intentionally not being moved merely to make the tree look uniform. Several were requested as independently browsable references. The `architecture-search/` directory is the boundary for the planner experiment.
 
 ## Current status
 
-The repository is currently in the design, cataloging, and evidence-gathering stage. The architecture-search planner remains prose/design work. The one intentional executable exception is `gpu-renderer-contract/`: a dependency-free test lab for host/GPU boundary invariants learned from real renderers and compiler backends. It is not an executable component schema, observation store, SURFER selection trace, planner, constraint solver, autotuner, or ComputerScience compiler. Catalog entries and proposed directory structure do not count as implementations.
+The repository is currently in the design, cataloging, and evidence-gathering stage. The architecture-search planner remains prose/design work. The executable `gpu-renderer-contract/` lab checks host/GPU boundary invariants, and the MC-01 audit checks recorded source provenance. Neither is an executable component schema, observation store, SURFER selection trace, planner, constraint solver, autotuner, or ComputerScience compiler. Catalog entries and proposed directory structure do not count as implementations.
 
 Relevant implementations exist in neighboring repositories: the [Idriç compiler](https://github.com/isomorphisms/Idric), the [Idris-to-GLSL ES backend](https://github.com/isomorphisms/idris-shader-backend), and the existing [CPU-only Java SURFER app](https://github.com/isomorphisms/algebraic-variety-explorer-mobile). They are implementation evidence and possible lowering machinery, not an implemented ComputerScience planner.
 
